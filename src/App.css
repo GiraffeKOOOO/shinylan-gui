@@ -1,7 +1,10 @@
-#root {
+body {
+  min-width: 320px;
+  min-height: 100vh;
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  display: flex;
+  place-items: center;
   text-align: center;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -14,10 +17,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+p {
+  color: black;
 }
