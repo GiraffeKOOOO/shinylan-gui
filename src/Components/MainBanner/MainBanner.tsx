@@ -2,10 +2,11 @@ import { FC } from 'react';
 import { Stack } from '@mui/material';
 import bannerImage from '../../Assets/shinylan-1.jpg';
 import BannerText from 'Components/MainBanner/BannerText';
+import Colours from 'Components/Shared/Colours';
 
 const MainBanner: FC = () => {
   return (
-    <Stack sx={{ position: 'static', borderTop: `1px solid black` }}>
+    <Stack sx={{ position: 'static' }}>
       <Stack
         sx={{
           backgroundImage: `url(${bannerImage})`,
@@ -20,7 +21,7 @@ const MainBanner: FC = () => {
           sx={{
             height: '300px',
             width: '90vw',
-            backgroundColor: 'rgba(60, 75, 98, 0.7)',
+            backgroundColor: Colours.bannerImageBackground,
             position: 'relative',
             bottom: '-15%',
             left: '5%',

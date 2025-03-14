@@ -5,9 +5,8 @@ import Colours from 'Components/Shared/Colours';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Shared/Footer';
 import MainBanner from 'Components/MainBanner/MainBanner';
-import LongText from 'Components/LongText';
 
-const Home: FC = () => {
+const Events: FC = () => {
   const { darkMode } = useDarkMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -24,7 +23,7 @@ const Home: FC = () => {
 
       <Grid size={12}>
         <MainBanner />
-        <LongText />
+        <p>Events</p>
       </Grid>
 
       <Grid size={12}>
@@ -34,4 +33,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default Events;

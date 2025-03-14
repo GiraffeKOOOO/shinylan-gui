@@ -6,7 +6,8 @@
     "baseUrl": "./src",
     "paths": {
       "Components/*": ["Components/*"],
-      "Pages/*": ["Pages/*"]
+      "Pages/*": ["Pages/*"],
+      "Context/*": ["Context/*"]
     }
   }
 }
