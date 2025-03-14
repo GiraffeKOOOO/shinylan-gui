@@ -5,6 +5,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
+      "Assets/*": ["Assets/*"],
       "Components/*": ["Components/*"],
       "Pages/*": ["Pages/*"],
       "Context/*": ["Context/*"]

@@ -73,9 +73,10 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
               sx={{
                 mt: '3rem',
                 maxWidth: '1900px',
-                minWidth: '1900px',
+                // TODO: might need to add this back in - resize rework
+                // minWidth: '1900px',
                 '& .MuiMenu-paper': {
-                  maxWidth: '1900px',
+                  // maxWidth: '1900px',
                   width: '12rem',
                   backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground,
                 },

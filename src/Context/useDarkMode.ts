@@ -1,6 +1,4 @@
-// libraries
 import { useContext } from 'react';
-// files
 import { DarkModeContext, DarkModeContextType } from './DarkModeContext';
 
 export function useDarkMode(): DarkModeContextType {

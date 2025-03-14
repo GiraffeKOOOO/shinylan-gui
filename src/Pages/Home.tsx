@@ -5,7 +5,7 @@ import Colours from 'Components/Shared/Colours';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Shared/Footer';
 import MainBanner from 'Components/MainBanner/MainBanner';
-import LongText from 'Components/LongText';
+import UpcomingEvents from 'Components/UpcomingEvents/UpcomingEvents';
 
 const Home: FC = () => {
   const { darkMode } = useDarkMode();
@@ -15,16 +15,21 @@ const Home: FC = () => {
   return (
     <Grid
       container
-      sx={{ backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground }}
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground,
+      }}
       flexDirection="column"
     >
       <Grid size={12}>
         <Navbar darkMode={darkMode} isMobile={isMobile} />
       </Grid>
 
-      <Grid size={12}>
+      <Grid size={12} sx={{ flexGrow: 1 }}>
         <MainBanner />
-        <LongText />
+        <UpcomingEvents darkMode={darkMode} isMobile={isMobile} />
       </Grid>
 
       <Grid size={12}>

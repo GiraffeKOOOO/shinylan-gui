@@ -1,5 +1,5 @@
-import { Stack } from '@mui/material';
 import { FC } from 'react';
+import { Stack } from '@mui/material';
 
 const Footer: FC = () => {
   return (

@@ -1,5 +1,6 @@
-import { Typography } from '@mui/material';
 import { FC } from 'react';
+import { Typography } from '@mui/material';
+import Colours from 'Components/Shared/Colours';
 
 type BannerTextProps = {
   orangeText: boolean;
@@ -10,7 +11,7 @@ const BannerText: FC<BannerTextProps> = ({ orangeText, text }) => {
   return (
     <Typography
       sx={{
-        color: orangeText ? 'rgb(255,255,255)' : 'rgb(249, 130, 1)',
+        color: orangeText ? Colours.darkText : Colours.titleOrange,
         fontSize: {
           xs: '1.4rem',
           sm: '3rem',
