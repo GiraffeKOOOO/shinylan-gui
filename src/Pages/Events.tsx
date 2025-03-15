@@ -5,9 +5,8 @@ import Colours from 'Components/Shared/Colours';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Shared/Footer';
 import MainBanner from 'Components/MainBanner/MainBanner';
-import UpcomingEvents from 'Components/UpcomingEvents/UpcomingEvents';
 
-const Home: FC = () => {
+const Events: FC = () => {
   const { darkMode } = useDarkMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -15,21 +14,16 @@ const Home: FC = () => {
   return (
     <Grid
       container
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground,
-      }}
+      sx={{ backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground }}
       flexDirection="column"
     >
       <Grid size={12}>
         <Navbar darkMode={darkMode} isMobile={isMobile} />
       </Grid>
 
-      <Grid size={12} sx={{ flexGrow: 1 }}>
+      <Grid size={12}>
         <MainBanner />
-        <UpcomingEvents darkMode={darkMode} isMobile={isMobile} />
+        <p>Events</p>
       </Grid>
 
       <Grid size={12}>
@@ -39,4 +33,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default Events;

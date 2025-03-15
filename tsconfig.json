@@ -1,5 +1,14 @@
 {
   "files": [],
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
-  "moduleResolution": "node"
+  "moduleResolution": "node",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "Assets/*": ["Assets/*"],
+      "Components/*": ["Components/*"],
+      "Pages/*": ["Pages/*"],
+      "Context/*": ["Context/*"]
+    }
+  }
 }
