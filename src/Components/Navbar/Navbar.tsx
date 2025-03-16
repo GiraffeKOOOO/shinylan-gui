@@ -41,6 +41,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
               <img
                 // src={darkMode ? logoWhite : logoDark}
                 src={shinyLogo}
+                alt="shiny lan logo"
                 style={{
                   height: '3rem',
                   width: '14rem',

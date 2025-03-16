@@ -11,7 +11,6 @@ const MainBanner: FC = () => {
         sx={{
           backgroundImage: `url(${bannerImage})`,
           height: '400px',
-          width: '100vw',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: '100% 44%',

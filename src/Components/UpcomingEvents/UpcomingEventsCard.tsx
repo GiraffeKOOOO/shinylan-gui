@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { Card, CardActions, CardContent, Stack, Typography } from '@mui/material';
 import { Event } from 'Components/Shared/Types';
 import LocationButton from 'Components/UpcomingEvents/LocationButton';
-import SignUpButton from 'Components/UpcomingEvents/SignUpButton';
 import CardMediaContent from 'Components/UpcomingEvents/CardMediaContent';
+import ViewEventButton from 'Components/Shared/ViewEventButton';
 
 type UpcomingEventsCardProps = {
   darkMode: boolean;
@@ -18,7 +18,7 @@ const UpcomingEventsCard: FC<UpcomingEventsCardProps> = ({ darkMode, event }) =>
         // TODO: correct responsive sizing
         width: { xs: '1.4rem', sm: '12rem', md: '25rem', lg: '37.5rem' },
         marginX: '3rem',
-        borderRadius: '15px',
+        borderRadius: '10px',
       }}
     >
       <CardMediaContent event={event} />
@@ -32,7 +32,7 @@ const UpcomingEventsCard: FC<UpcomingEventsCardProps> = ({ darkMode, event }) =>
       </CardContent>
       <CardActions>
         <LocationButton darkMode={darkMode} venue={event.venue} />
-        <SignUpButton darkMode={darkMode} />
+        <ViewEventButton darkMode={darkMode} eventId={event.id} homePage />
       </CardActions>
     </Card>
   );

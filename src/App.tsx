@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DarkModeProvider } from './Context/DarkModeContext';
 import Home from 'Pages/Home';
+import Event from 'Pages/Event';
 import Events from 'Pages/Events';
 import Gallery from 'Pages/Gallery';
 import History from 'Pages/History';
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
+  },
+  {
+    path: '/event/:id',
+    element: <Event />,
   },
   {
     path: '/events',

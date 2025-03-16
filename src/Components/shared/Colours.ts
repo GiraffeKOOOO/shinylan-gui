@@ -13,6 +13,7 @@ enum Colours {
   lightNavButtonHover = 'rgb(238, 238, 238)',
   titleOrange = 'rgb(249, 130, 1)',
   cardMediaDaysLeftBackground = 'rgba(212, 212, 212, 0.9)',
+  cardBorderGrey = 'rgb(197, 197, 197)',
 }
 
 export default Colours;
