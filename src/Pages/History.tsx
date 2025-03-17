@@ -5,6 +5,7 @@ import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Shared/Footer';
 import MainBanner from 'Components/MainBanner/MainBanner';
+import HistoryText from 'Components/History/HistoryText';
 
 const History: FC = () => {
   const { darkMode } = useDarkMode();
@@ -19,7 +20,7 @@ const History: FC = () => {
 
       <Grid size={12} sx={{ flexGrow: 1 }}>
         <MainBanner />
-        <p>History</p>
+        <HistoryText darkMode={darkMode} />
       </Grid>
 
       <Grid size={12}>
