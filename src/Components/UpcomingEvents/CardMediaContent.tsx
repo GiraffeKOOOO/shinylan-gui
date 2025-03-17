@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Stack } from '@mui/material';
+import { Event } from 'Components/Shared/Types';
 import CardMediaDates from 'Components/UpcomingEvents/CardMediaDates';
 import CardMediaDaysLeft from 'Components/UpcomingEvents/CardMediaDaysLeft';
 import easterImage from 'Assets/easter.webp';
 import summerImage from 'Assets/summer.jpg';
-import { Event } from 'Components/Shared/Types';
 
 type CardMediaContentProps = {
   event: Event;

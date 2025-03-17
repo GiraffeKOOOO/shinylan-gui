@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useDarkMode } from 'Context/useDarkMode';
-import Colours from 'Components/Shared/Colours';
+import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Shared/Footer';
 import MainBanner from 'Components/MainBanner/MainBanner';
@@ -12,16 +12,12 @@ const Faq: FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Grid
-      container
-      sx={{ backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground }}
-      flexDirection="column"
-    >
+    <PageContainerGrid darkMode={darkMode}>
       <Grid size={12}>
         <Navbar darkMode={darkMode} isMobile={isMobile} />
       </Grid>
 
-      <Grid size={12}>
+      <Grid size={12} sx={{ flexGrow: 1 }}>
         <MainBanner />
         <p>Faq</p>
       </Grid>
@@ -29,7 +25,7 @@ const Faq: FC = () => {
       <Grid size={12}>
         <Footer />
       </Grid>
-    </Grid>
+    </PageContainerGrid>
   );
 };
 

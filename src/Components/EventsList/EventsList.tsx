@@ -1,18 +1,18 @@
 import { FC } from 'react';
 import { Grid2 as Grid, Stack, Typography } from '@mui/material';
 import { Event } from 'Components/Shared/Types';
+import EventListItem from 'Components/EventsList/EventListItem';
 import Colours from 'Components/Shared/Colours';
-import UpcomingEventsCard from 'Components/UpcomingEvents/UpcomingEventsCard';
 
-type UpcomingEventsProps = {
+type EventsListProps = {
   darkMode: boolean;
   isMobile: boolean;
   events: Event[];
 };
 
-const UpcomingEvents: FC<UpcomingEventsProps> = ({ darkMode, events }) => {
+const EventsList: FC<EventsListProps> = ({ darkMode, events }) => {
   return (
-    <Grid container sx={{ marginTop: '1rem', marginBottom: '2rem' }}>
+    <Grid container sx={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
       {/* Padding left */}
       <Grid size={1} />
 
@@ -34,12 +34,17 @@ const UpcomingEvents: FC<UpcomingEventsProps> = ({ darkMode, events }) => {
           >
             Upcoming Events
           </Typography>
-          {/* event cards */}
-          <Stack direction="row" justifyContent="center" sx={{ marginTop: '1.5rem' }}>
-            {events.map((event: Event, iterator) => (
-              <UpcomingEventsCard key={iterator} darkMode={darkMode} event={event} />
-            ))}
-          </Stack>
+          {/* event list */}
+          {events.map((event: Event, iterator) => (
+            <Stack
+              direction="row"
+              justifyContent="center"
+              sx={{ marginTop: '1.5rem' }}
+              key={iterator}
+            >
+              <EventListItem event={event} />
+            </Stack>
+          ))}
         </Stack>
       </Grid>
 
@@ -49,4 +54,4 @@ const UpcomingEvents: FC<UpcomingEventsProps> = ({ darkMode, events }) => {
   );
 };
 
-export default UpcomingEvents;
+export default EventsList;

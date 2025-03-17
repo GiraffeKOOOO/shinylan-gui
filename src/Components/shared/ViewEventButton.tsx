@@ -1,16 +1,17 @@
 import { FC } from 'react';
 import { Button } from '@mui/material';
-import { useNavigate } from 'react-router';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import Colours from 'Components/Shared/Colours';
+import { useNavigate } from 'react-router';
 
-type SignUpButtonProps = {
-  darkMode: boolean;
+type ViewEventButtonProps = {
+  darkMode?: boolean;
+  eventId: number;
+  homePage: boolean;
 };
 
-const SignUpButton: FC<SignUpButtonProps> = () => {
+const ViewEventButton: FC<ViewEventButtonProps> = ({ homePage, eventId }) => {
   const navigate = useNavigate();
-
   return (
     <Button
       variant="contained"
@@ -22,11 +23,11 @@ const SignUpButton: FC<SignUpButtonProps> = () => {
         textDecorationColor: Colours.titleOrange,
         textTransform: 'none',
       }}
-      onClick={() => navigate('/events')}
+      onClick={() => navigate(`/event?id=${eventId}`)}
     >
-      Sign Up
+      {homePage ? 'Sign Up' : 'View Event'}
     </Button>
   );
 };
 
-export default SignUpButton;
+export default ViewEventButton;

@@ -7,8 +7,10 @@ export type Venue = {
 };
 
 export type Event = {
+  id: number;
   type: 'Summer' | 'Easter';
   venue: Venue;
   dateFrom: Date;
   dateTo: Date;
+  signups: number;
 };
