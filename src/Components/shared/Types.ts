@@ -12,5 +12,5 @@ export type Event = {
   venue: Venue;
   dateFrom: Date;
   dateTo: Date;
-  attendees: number;
+  signups: number;
 };

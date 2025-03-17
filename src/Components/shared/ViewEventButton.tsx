@@ -23,7 +23,7 @@ const ViewEventButton: FC<ViewEventButtonProps> = ({ homePage, eventId }) => {
         textDecorationColor: Colours.titleOrange,
         textTransform: 'none',
       }}
-      onClick={() => navigate(`/event/id=${eventId}`)}
+      onClick={() => navigate(`/event?id=${eventId}`)}
     >
       {homePage ? 'Sign Up' : 'View Event'}
     </Button>

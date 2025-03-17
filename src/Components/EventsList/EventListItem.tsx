@@ -39,7 +39,9 @@ const EventListItem: FC<EventListItemProps> = ({ event }) => {
           height={90}
           width={200}
         />
-        <Typography sx={{ marginX: '0.5rem', fontSize: '1.6rem', width: '12rem' }}>
+        <Typography
+          sx={{ marginX: '0.5rem', fontSize: '1.6rem', width: '12rem', fontFamily: 'Varela Round' }}
+        >
           {event.type} {event.dateFrom.getFullYear()}
         </Typography>
         <Divider orientation="vertical" sx={{ marginX: '0.1rem' }} />
@@ -59,7 +61,7 @@ const EventListItem: FC<EventListItemProps> = ({ event }) => {
         <Stack sx={{ marginX: '0.5rem' }}>
           <GroupsIcon sx={{ fontSize: '1.2rem', marginX: 'auto' }} />
           <Typography>
-            {event.attendees} / {event.venue.capacity}
+            {event.signups} / {event.venue.capacity}
           </Typography>
         </Stack>
         <Divider orientation="vertical" sx={{ marginX: '0.1rem' }} />

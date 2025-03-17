@@ -35,8 +35,13 @@ const EventsList: FC<EventsListProps> = ({ darkMode, events }) => {
             Upcoming Events
           </Typography>
           {/* event list */}
-          {events.map((event: Event) => (
-            <Stack direction="row" justifyContent="center" sx={{ marginTop: '1.5rem' }}>
+          {events.map((event: Event, iterator) => (
+            <Stack
+              direction="row"
+              justifyContent="center"
+              sx={{ marginTop: '1.5rem' }}
+              key={iterator}
+            >
               <EventListItem event={event} />
             </Stack>
           ))}
