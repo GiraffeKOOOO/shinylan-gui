@@ -13,4 +13,6 @@ export type Event = {
   dateFrom: Date;
   dateTo: Date;
   signups: number;
+  galleryThumbnail: string;
+  gallery: string[];
 };

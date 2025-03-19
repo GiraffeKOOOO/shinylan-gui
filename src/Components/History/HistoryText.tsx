@@ -31,7 +31,10 @@ const HistoryText: FC<HistoryTextProps> = ({ darkMode }) => {
             History
           </Typography>
           {/* event cards */}
-          <Typography sx={{ marginY: '0.5rem' }} align="left">
+          <Typography
+            sx={{ color: darkMode ? Colours.darkText : Colours.lightText, marginY: '0.5rem' }}
+            align="left"
+          >
             Back in the primordial soup that was the beginning of the millenium a bunch of teenage
             gamers decided to gather at Wincanton Memorial Hall in Somerset with our PC's, piles of
             network cables, a few switches and a tangle of extension cables. The year was 2001, the
@@ -40,7 +43,10 @@ const HistoryText: FC<HistoryTextProps> = ({ darkMode }) => {
             beginnings we hosted several more gaming events with the help of Gigabits and we called
             ourselves ShinyLorry because... umm, just because.
           </Typography>
-          <Typography sx={{ marginY: '0.7rem' }} align="left">
+          <Typography
+            sx={{ color: darkMode ? Colours.darkText : Colours.lightText, marginY: '0.7rem' }}
+            align="left"
+          >
             From 2004 we decided to call ourselves ShinyLAN to avoid confusion with transport
             enthusiasts. At the same time many of the original crew went to university all over the
             country to pretend to learn about things for a bit while mostly getting drunk (with
@@ -53,7 +59,10 @@ const HistoryText: FC<HistoryTextProps> = ({ darkMode }) => {
             and we welcome like minded people to our laid back interpretation of what a LAN Party
             should be. We pride ourselves on our reputation as the social LAN.
           </Typography>
-          <Typography sx={{ marginY: '0.5rem' }} align="left">
+          <Typography
+            sx={{ color: darkMode ? Colours.darkText : Colours.lightText, marginY: '0.5rem' }}
+            align="left"
+          >
             A special mention to previous staff and crew that helped make the LANs happen: Matt
             (Intim), Rich (Excalibur), Lawrence (Mupet), Chris (Spud) and Ed (EdTheProfet). And much
             love to all those that attendend over the years, we'll see you next time!
