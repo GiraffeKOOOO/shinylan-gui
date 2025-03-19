@@ -1,9 +1,13 @@
 enum Colours {
   lightBackground = 'rgb(255, 255, 255)',
+  lightBackgroundFooter = 'rgb(255, 199, 138)',
   lightText = 'rgb(0, 0, 0)',
+  lightTextHover = 'rgb(76, 76, 76)',
   darkBackground = 'rgb(17, 26, 40)',
+  darkBackgroundFooter = 'rgb(34, 42, 55)',
   // eslint-disable-next-line @typescript-eslint/no-duplicate-enum-values
   darkText = 'rgb(255, 255, 255)',
+  darkTextHover = 'rgb(213, 213, 213)',
   transparent = 'rgba(0,0,0,0)',
   bannerImageBackground = 'rgba(60, 75, 98, 0.7)',
   signUpButton = 'rgb(230, 89, 18)',

@@ -1,12 +1,12 @@
 import { FC, useState, MouseEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { AppBar, Container, Grid2 as Grid, Menu, Stack, Toolbar } from '@mui/material';
-import Colours from 'Components/Shared/Colours';
+import { Pages } from 'Components/Shared/Types';
 import DarkModeButton from 'Components/Navbar/DarkModeButton';
 import MenuButton from 'Components/Navbar/MenuButton';
-import shinyLogo from '../../Assets/sl-banner.png';
 import NavButton from 'Components/Navbar/NavButton';
-import Pages from 'Components/Shared/Pages';
+import Colours from 'Components/Shared/Colours';
+import shinyLogo from '../../Assets/sl-banner.png';
 
 type NavbarProps = {
   darkMode: boolean;
@@ -53,11 +53,11 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
                 onClick={() => navigate('/')}
               />
               <Stack direction="row" justifyContent="space-between">
-                <NavButton isMobile={isMobile} buttonName={Pages.Events} />
-                <NavButton isMobile={isMobile} buttonName={Pages.Gallery} />
-                <NavButton isMobile={isMobile} buttonName={Pages.History} />
-                <NavButton isMobile={isMobile} buttonName={Pages.Faq} />
-                <NavButton isMobile={isMobile} buttonName={Pages.Contact} />
+                <NavButton isMobile={isMobile} page={Pages.Events} />
+                <NavButton isMobile={isMobile} page={Pages.Gallery} />
+                <NavButton isMobile={isMobile} page={Pages.History} />
+                <NavButton isMobile={isMobile} page={Pages.Faq} />
+                <NavButton isMobile={isMobile} page={Pages.Contact} />
               </Stack>
             </Toolbar>
           </Grid>

@@ -2,15 +2,16 @@ import { FC } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { useDarkMode } from 'Context/useDarkMode';
+import { Pages } from 'Components/Shared/Types';
 import LocationSwitch from 'Components/Navbar/LocationSwitch';
 import Colours from 'Components/Shared/Colours';
 
 type ButtonProps = {
   isMobile: boolean;
-  buttonName: string;
+  page: Pages;
 };
 
-const NavButton: FC<ButtonProps> = ({ isMobile, buttonName }) => {
+const NavButton: FC<ButtonProps> = ({ isMobile, page }) => {
   const { darkMode } = useDarkMode();
   const navigate = useNavigate();
 
@@ -66,9 +67,9 @@ const NavButton: FC<ButtonProps> = ({ isMobile, buttonName }) => {
           border: 'none',
         },
       }}
-      onClick={() => LocationSwitch(buttonName, navigate)}
+      onClick={() => LocationSwitch(page, navigate)}
     >
-      {buttonName}
+      {page}
     </Button>
   );
 };

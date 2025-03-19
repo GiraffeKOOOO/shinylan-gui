@@ -1,8 +1,8 @@
-import Pages from 'Components/Shared/Pages';
 import { NavigateFunction } from 'react-router';
+import { Pages } from 'Components/Shared/Types';
 
-const LocationSwitch = (buttonName: string, navigate: NavigateFunction) => {
-  switch (buttonName) {
+const LocationSwitch = (page: Pages, navigate: NavigateFunction) => {
+  switch (page) {
     case Pages.Home:
       navigate('/');
       break;

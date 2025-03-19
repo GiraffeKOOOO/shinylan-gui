@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router';
 import { useDarkMode } from 'Context/useDarkMode';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import Navbar from 'Components/Navbar/Navbar';
-import Footer from 'Components/Shared/Footer';
+import Footer from 'Components/Footer/Footer';
 import EventBanner from 'Components/EventBanner/EventBanner';
 import { MockEvents } from '../../MockData';
 
@@ -29,7 +29,7 @@ const Event: FC = () => {
         </Grid>
 
         <Grid size={12}>
-          <Footer />
+          <Footer darkMode={darkMode} />
         </Grid>
       </PageContainerGrid>
     );

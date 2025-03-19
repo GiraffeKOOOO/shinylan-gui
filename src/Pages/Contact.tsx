@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useDarkMode } from 'Context/useDarkMode';
 import Navbar from 'Components/Navbar/Navbar';
-import Footer from 'Components/Shared/Footer';
+import Footer from 'Components/Footer/Footer';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import ContactDisplay from 'Components/ContactDisplay/ContactDisplay';
 
@@ -22,7 +22,7 @@ const Contact: FC = () => {
       </Grid>
 
       <Grid size={12}>
-        <Footer />
+        <Footer darkMode={darkMode} />
       </Grid>
     </PageContainerGrid>
   );

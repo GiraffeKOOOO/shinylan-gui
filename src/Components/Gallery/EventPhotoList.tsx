@@ -44,7 +44,7 @@ const EventPhotoList: FC<EventPhotoListProps> = ({ darkMode, event }) => {
   if (!event) return;
 
   return (
-    <Grid container sx={{ marginTop: '1rem', marginBottom: '2rem' }}>
+    <Grid container sx={{ marginTop: '1rem', marginBottom: '3rem' }}>
       {/* Padding left */}
       <Grid size={1} />
 

@@ -10,7 +10,7 @@ type ContactDisplayProps = {
 
 const ContactDisplay: FC<ContactDisplayProps> = ({ darkMode }) => {
   return (
-    <Grid container sx={{ marginTop: '1rem', marginBottom: '2rem' }}>
+    <Grid container sx={{ marginTop: '1rem' }}>
       {/* Padding left */}
       <Grid size={3} />
 

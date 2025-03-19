@@ -5,7 +5,7 @@ import { useDarkMode } from 'Context/useDarkMode';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import EventPhotoList from 'Components/Gallery/EventPhotoList';
 import Navbar from 'Components/Navbar/Navbar';
-import Footer from 'Components/Shared/Footer';
+import Footer from 'Components/Footer/Footer';
 import { MockEvents } from '../../MockData';
 
 const EventGallery: FC = () => {
@@ -30,7 +30,7 @@ const EventGallery: FC = () => {
       </Grid>
 
       <Grid size={12}>
-        <Footer />
+        <Footer darkMode={darkMode} />
       </Grid>
     </PageContainerGrid>
   );
