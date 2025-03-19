@@ -3,7 +3,7 @@ import { Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useDarkMode } from 'Context/useDarkMode';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import Navbar from 'Components/Navbar/Navbar';
-import Footer from 'Components/Shared/Footer';
+import Footer from 'Components/Footer/Footer';
 import GalleryEventList from 'Components/Gallery/GalleryEventList';
 
 const Gallery: FC = () => {
@@ -22,7 +22,7 @@ const Gallery: FC = () => {
       </Grid>
 
       <Grid size={12}>
-        <Footer />
+        <Footer darkMode={darkMode} />
       </Grid>
     </PageContainerGrid>
   );

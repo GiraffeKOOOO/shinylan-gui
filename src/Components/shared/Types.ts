@@ -17,6 +17,15 @@ export type Event = {
   gallery: string[];
 };
 
+export enum Pages {
+  Home = 'Home',
+  Events = 'Events',
+  Gallery = 'Gallery',
+  History = 'History',
+  Faq = 'FAQ',
+  Contact = 'Contact',
+}
+
 export enum Socials {
   facebook = 'Facebook',
   instagram = 'Instagram',

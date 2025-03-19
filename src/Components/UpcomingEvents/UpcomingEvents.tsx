@@ -12,7 +12,7 @@ type UpcomingEventsProps = {
 
 const UpcomingEvents: FC<UpcomingEventsProps> = ({ darkMode, events }) => {
   return (
-    <Grid container sx={{ marginTop: '1rem', marginBottom: '2rem' }}>
+    <Grid container sx={{ marginTop: '1rem', marginBottom: '4rem' }}>
       {/* Padding left */}
       <Grid size={1} />
 
