@@ -4,6 +4,7 @@ import { DarkModeProvider } from './Context/DarkModeContext';
 import Home from 'Pages/Home';
 import Event from 'Pages/Event';
 import Events from 'Pages/Events';
+import EventGallery from 'Pages/EventGallery';
 import Gallery from 'Pages/Gallery';
 import History from 'Pages/History';
 import Faq from 'Pages/Faq';
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: '/gallery',
     element: <Gallery />,
+  },
+  {
+    path: '/event-gallery',
+    element: <EventGallery />,
   },
   {
     path: '/history',

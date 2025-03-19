@@ -1,15 +1,23 @@
 import { FC } from 'react';
 import { Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
+import { useSearchParams } from 'react-router';
 import { useDarkMode } from 'Context/useDarkMode';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
+import EventPhotoList from 'Components/Gallery/EventPhotoList';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Shared/Footer';
-import GalleryEventList from 'Components/Gallery/GalleryEventList';
+import { MockEvents } from '../../MockData';
 
-const Gallery: FC = () => {
+const EventGallery: FC = () => {
+  const [searchParams] = useSearchParams();
+  const urlId = searchParams.get('id');
+  const filteredEvent = MockEvents.find((event) => event.id.toString() === urlId);
+
   const { darkMode } = useDarkMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  if (!filteredEvent) return;
 
   return (
     <PageContainerGrid darkMode={darkMode}>
@@ -18,7 +26,7 @@ const Gallery: FC = () => {
       </Grid>
 
       <Grid size={12} sx={{ flexGrow: 1 }}>
-        <GalleryEventList darkMode={darkMode} />
+        <EventPhotoList darkMode={darkMode} event={filteredEvent} />
       </Grid>
 
       <Grid size={12}>
@@ -28,4 +36,4 @@ const Gallery: FC = () => {
   );
 };
 
-export default Gallery;
+export default EventGallery;
