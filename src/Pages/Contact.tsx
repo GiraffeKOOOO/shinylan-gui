@@ -3,8 +3,8 @@ import { Grid2 as Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useDarkMode } from 'Context/useDarkMode';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Shared/Footer';
-import MainBanner from 'Components/MainBanner/MainBanner';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
+import ContactDisplay from 'Components/ContactDisplay/ContactDisplay';
 
 const Contact: FC = () => {
   const { darkMode } = useDarkMode();
@@ -18,8 +18,7 @@ const Contact: FC = () => {
       </Grid>
 
       <Grid size={12} sx={{ flexGrow: 1 }}>
-        <MainBanner />
-        <p>Contact</p>
+        <ContactDisplay darkMode={darkMode} />
       </Grid>
 
       <Grid size={12}>
