@@ -5,6 +5,8 @@ import { Pages } from 'Components/Shared/Types';
 import DarkModeButton from 'Components/Navbar/DarkModeButton';
 import MenuButton from 'Components/Navbar/MenuButton';
 import NavButton from 'Components/Navbar/NavButton';
+import SignInButton from 'Components/Navbar/SignInButton';
+import SignUpButton from 'Components/Navbar/SignUpButton';
 import Colours from 'Components/Shared/Colours';
 import shinyLogo from '../../Assets/sl-banner.png';
 
@@ -16,6 +18,10 @@ type NavbarProps = {
 const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
   const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+
+  // TODO: this needs to be removed when actual user state is here
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
 
   const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -36,7 +42,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
       <Container>
         <Grid container alignItems="center">
           {/* left side */}
-          <Grid size={10}>
+          <Grid size={9}>
             <Toolbar disableGutters={true}>
               <img
                 // src={darkMode ? logoWhite : logoDark}
@@ -63,44 +69,57 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
           </Grid>
 
           {/* right side */}
-          <Grid size={2}>
-            <DarkModeButton />
-            <MenuButton
-              isOpen={false}
-              isMobile={isMobile}
-              handleOpenUserMenu={handleOpenUserMenu}
-            />
-            <Menu
-              sx={{
-                mt: '3rem',
-                maxWidth: '1900px',
-                // TODO: might need to add this back in - resize rework
-                // minWidth: '1900px',
-                '& .MuiMenu-paper': {
-                  // maxWidth: '1900px',
-                  width: '12rem',
-                  backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground,
-                },
-              }}
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {/* Drop Down Menu */}
-              {/* <NavbarMenuItem setting="Event Tickets" />
+          <Grid size={3}>
+            <Stack direction="row" spacing={2}>
+              <DarkModeButton />
+              {userLoggedIn ? (
+                <>
+                  <MenuButton
+                    isOpen={false}
+                    isMobile={isMobile}
+                    handleOpenUserMenu={handleOpenUserMenu}
+                  />
+                  <Menu
+                    sx={{
+                      mt: '3rem',
+                      maxWidth: '1900px',
+                      // TODO: might need to add this back in - resize rework
+                      // minWidth: '1900px',
+                      '& .MuiMenu-paper': {
+                        // maxWidth: '1900px',
+                        width: '12rem',
+                        backgroundColor: darkMode
+                          ? Colours.darkBackground
+                          : Colours.lightBackground,
+                      },
+                    }}
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    {/* Drop Down Menu */}
+                    {/* <NavbarMenuItem setting="Event Tickets" />
               <NavbarMenuItem setting="Settings" />
               {userLoggedIn && <NavbarMenuItem setting="Sign out" />} */}
-              <DarkModeButton />
-            </Menu>
+                    <DarkModeButton />
+                  </Menu>
+                </>
+              ) : (
+                <>
+                  <SignInButton darkMode={darkMode} />
+                  <SignUpButton />
+                </>
+              )}
+            </Stack>
           </Grid>
         </Grid>
       </Container>
