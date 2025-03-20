@@ -17,6 +17,12 @@ export type Event = {
   gallery: string[];
 };
 
+export type Staff = {
+  userName: string;
+  description: string;
+  imageUrl: string;
+};
+
 export enum Pages {
   Home = 'Home',
   Events = 'Events',
