@@ -1,16 +1,18 @@
 import { FC } from 'react';
 import { Grid2 as Grid, Stack, Typography } from '@mui/material';
-import VenueInfo from 'Components/VenueInfo/VenueInfo';
+import { Staff } from 'Components/Shared/Types';
+import StaffProfiles from 'Components/AboutContent/StaffProfiles';
 import Colours from 'Components/Shared/Colours';
-import { MockCerneAbbas } from '../../../MockData';
+import HistoryText from 'Components/History/HistoryText';
 
-type FaqContentProps = {
+type AboutContentProps = {
   darkMode: boolean;
+  staff: Staff[];
 };
 
-const FaqContent: FC<FaqContentProps> = ({ darkMode }) => {
+const AboutContent: FC<AboutContentProps> = ({ darkMode, staff }) => {
   return (
-    <Grid container sx={{ marginTop: '1rem', marginBottom: '1rem' }}>
+    <Grid container sx={{ marginTop: '1rem', marginBottom: '4rem' }}>
       {/* Padding left */}
       <Grid size={1} />
 
@@ -30,12 +32,12 @@ const FaqContent: FC<FaqContentProps> = ({ darkMode }) => {
               fontFamily: 'Varela Round',
             }}
           >
-            FAQ
+            About
           </Typography>
           {/* main content */}
-          <Stack direction="row" justifyContent="center" sx={{ marginTop: '1.5rem' }}>
-            {/* <FaqSection /> */}
-            <VenueInfo darkMode={darkMode} venue={MockCerneAbbas} />
+          <Stack direction="column" justifyContent="center" sx={{ marginTop: '1.5rem' }}>
+            <StaffProfiles darkMode={darkMode} staff={staff} />
+            <HistoryText darkMode={darkMode} />
           </Stack>
         </Stack>
       </Grid>
@@ -46,4 +48,4 @@ const FaqContent: FC<FaqContentProps> = ({ darkMode }) => {
   );
 };
 
-export default FaqContent;
+export default AboutContent;

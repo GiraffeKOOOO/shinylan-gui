@@ -61,7 +61,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
               <Stack direction="row" justifyContent="space-between">
                 <NavButton isMobile={isMobile} page={Pages.Events} />
                 <NavButton isMobile={isMobile} page={Pages.Gallery} />
-                <NavButton isMobile={isMobile} page={Pages.History} />
+                <NavButton isMobile={isMobile} page={Pages.About} />
                 <NavButton isMobile={isMobile} page={Pages.Faq} />
                 <NavButton isMobile={isMobile} page={Pages.Contact} />
               </Stack>

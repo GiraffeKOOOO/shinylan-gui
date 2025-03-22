@@ -27,7 +27,7 @@ export enum Pages {
   Home = 'Home',
   Events = 'Events',
   Gallery = 'Gallery',
-  History = 'History',
+  About = 'About',
   Faq = 'FAQ',
   Contact = 'Contact',
 }

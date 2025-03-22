@@ -12,8 +12,8 @@ const LocationSwitch = (page: Pages, navigate: NavigateFunction) => {
     case Pages.Gallery:
       navigate('/gallery');
       break;
-    case Pages.History:
-      navigate('/history');
+    case Pages.About:
+      navigate('/about');
       break;
     case Pages.Faq:
       navigate('/faq');

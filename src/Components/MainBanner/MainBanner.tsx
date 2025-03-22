@@ -31,7 +31,7 @@ const MainBanner: FC = () => {
           <Stack flexDirection="column" sx={{ margin: 'auto' }}>
             <Stack flexDirection="row" sx={{ margin: 'auto' }}>
               <BannerText orangeText text={`The South West's`} />
-              <BannerText orangeText={false} text={'shiniest'} />
+              <BannerText orangeText={false} text={'Shiniest'} />
             </Stack>
             <Stack sx={{ margin: 'auto' }}>
               <BannerText orangeText text={'LAN Party'} />

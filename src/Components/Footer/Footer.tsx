@@ -36,7 +36,7 @@ const Footer: FC<FooterProps> = ({ darkMode }) => {
         <Stack direction="row" justifyContent="center">
           <FooterButton darkMode={darkMode} page={Pages.Events} />
           <FooterButton darkMode={darkMode} page={Pages.Gallery} />
-          <FooterButton darkMode={darkMode} page={Pages.History} />
+          <FooterButton darkMode={darkMode} page={Pages.About} />
           <FooterButton darkMode={darkMode} page={Pages.Faq} />
           <FooterButton darkMode={darkMode} page={Pages.Contact} />
         </Stack>

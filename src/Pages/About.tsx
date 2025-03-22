@@ -4,9 +4,10 @@ import { useDarkMode } from 'Context/useDarkMode';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Footer/Footer';
-import HistoryText from 'Components/History/HistoryText';
+import AboutContent from 'Components/AboutContent/AboutContent';
+import { MockStaff } from '../../MockData';
 
-const History: FC = () => {
+const About: FC = () => {
   const { darkMode } = useDarkMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -18,7 +19,7 @@ const History: FC = () => {
       </Grid>
 
       <Grid size={12} sx={{ flexGrow: 1 }}>
-        <HistoryText darkMode={darkMode} />
+        <AboutContent darkMode={darkMode} staff={MockStaff} />
       </Grid>
 
       <Grid size={12}>
@@ -28,4 +29,4 @@ const History: FC = () => {
   );
 };
 
-export default History;
+export default About;
