@@ -9,6 +9,7 @@ import Gallery from 'Pages/Gallery';
 import About from 'Pages/About';
 import Faq from 'Pages/Faq';
 import Contact from 'Pages/Contact';
+import TermsAndConditions from 'Pages/TermsAndConditions';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: '/contact',
     element: <Contact />,
+  },
+  {
+    path: '/terms-and-conditions',
+    element: <TermsAndConditions />,
   },
 ]);
 

@@ -10,6 +10,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
 import Colours from 'Components/Shared/Colours';
+import { useNavigate } from 'react-router';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -46,6 +47,7 @@ type FaqSectionProps = {
 };
 
 const FaqSection: FC<FaqSectionProps> = () => {
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState<string | false>('');
 
   const handleChange = (panel: string) => (_event: SyntheticEvent, newExpanded: boolean) => {
@@ -136,8 +138,13 @@ const FaqSection: FC<FaqSectionProps> = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Of course, but drink responsibly. You can read our policy on alcohol in our event terms
-            and conditions
+            Of course, but drink responsibly. You can read our policy on alcohol in our event{' '}
+            <a
+              onClick={() => navigate('/terms-and-conditions')}
+              style={{ cursor: 'pointer', textDecoration: 'underline' }}
+            >
+              terms and conditions
+            </a>
           </Typography>
         </AccordionDetails>
       </Accordion>
