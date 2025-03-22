@@ -1,15 +1,18 @@
 import { FC } from 'react';
 import { Grid2 as Grid, Stack, Typography } from '@mui/material';
-import Colours from 'Components/Shared/Colours';
+import { useNavigate } from 'react-router';
 import SocialIconButton from 'Components/ContactDisplay/SocialIconButton';
-import { Pages, Socials } from 'Components/Shared/Types';
 import FooterButton from 'Components/Footer/FooterButton';
+import { Pages, Socials } from 'Components/Shared/Types';
+import Colours from 'Components/Shared/Colours';
 
 type FooterProps = {
   darkMode: boolean;
 };
 
 const Footer: FC<FooterProps> = ({ darkMode }) => {
+  const navigate = useNavigate();
+
   return (
     <Grid
       container
@@ -22,13 +25,22 @@ const Footer: FC<FooterProps> = ({ darkMode }) => {
       }}
     >
       <Grid size={4}>
-        <Stack direction="row" justifyContent="center">
+        <Stack direction="column" justifyContent="center">
           <Typography
             sx={{
               color: darkMode ? Colours.darkText : Colours.lightText,
             }}
           >
-            © 2006-2025 Copyright ShinyLAN.
+            © 2006-2025 Copyright ShinyLAN
+          </Typography>
+          <Typography
+            sx={{
+              color: darkMode ? Colours.darkText : Colours.lightText,
+              cursor: 'pointer',
+            }}
+            onClick={() => navigate('/terms-and-conditions')}
+          >
+            Terms and Conditions
           </Typography>
         </Stack>
       </Grid>
@@ -36,7 +48,7 @@ const Footer: FC<FooterProps> = ({ darkMode }) => {
         <Stack direction="row" justifyContent="center">
           <FooterButton darkMode={darkMode} page={Pages.Events} />
           <FooterButton darkMode={darkMode} page={Pages.Gallery} />
-          <FooterButton darkMode={darkMode} page={Pages.History} />
+          <FooterButton darkMode={darkMode} page={Pages.About} />
           <FooterButton darkMode={darkMode} page={Pages.Faq} />
           <FooterButton darkMode={darkMode} page={Pages.Contact} />
         </Stack>

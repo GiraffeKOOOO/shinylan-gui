@@ -15,51 +15,38 @@ const iconSwitch = (social: string) => {
   switch (social) {
     case Socials.facebook:
       return <FaFacebook />;
-      break;
     case Socials.instagram:
       return <FaInstagram />;
-      break;
     case Socials.x:
       return <FaXTwitter />;
-      break;
     case Socials.youtube:
       return <FaYoutube />;
-      break;
     case Socials.discord:
       return <FaDiscord />;
-      break;
     case Socials.steam:
       return <FaSteam />;
-      break;
     default:
       return <GrContact />;
-      break;
   }
 };
 
 const redirectSwitch = (social: string) => {
+  console.log(`TEST: ${social}`);
   switch (social) {
     case Socials.facebook:
-      return () => window.open(`${SocialLinks.facebook}`, '_blank', 'noopener,noreferrer');
-      break;
+      return window.open(`${SocialLinks.facebook}`, '_blank', 'noopener,noreferrer');
     case Socials.instagram:
-      return () => window.open(`${SocialLinks.instagram}`, '_blank', 'noopener,noreferrer');
-      break;
+      return window.open(`${SocialLinks.instagram}`, '_blank', 'noopener,noreferrer');
     case Socials.x:
-      return () => window.open(`${SocialLinks.x}`, '_blank', 'noopener,noreferrer');
-      break;
+      return window.open(`${SocialLinks.x}`, '_blank', 'noopener,noreferrer');
     case Socials.youtube:
-      return () => window.open(`${SocialLinks.youtube}`, '_blank', 'noopener,noreferrer');
-      break;
+      return window.open(`${SocialLinks.youtube}`, '_blank', 'noopener,noreferrer');
     case Socials.discord:
-      return () => window.open(`${SocialLinks.discord}`, '_blank', 'noopener,noreferrer');
-      break;
+      return window.open(`${SocialLinks.discord}`, '_blank', 'noopener,noreferrer');
     case Socials.steam:
-      return () => window.open(`${SocialLinks.steam}`, '_blank', 'noopener,noreferrer');
-      break;
+      return window.open(`${SocialLinks.steam}`, '_blank', 'noopener,noreferrer');
     default:
       return <GrContact />;
-      break;
   }
 };
 

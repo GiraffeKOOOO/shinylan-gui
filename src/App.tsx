@@ -6,9 +6,10 @@ import Event from 'Pages/Event';
 import Events from 'Pages/Events';
 import EventGallery from 'Pages/EventGallery';
 import Gallery from 'Pages/Gallery';
-import History from 'Pages/History';
+import About from 'Pages/About';
 import Faq from 'Pages/Faq';
 import Contact from 'Pages/Contact';
+import TermsAndConditions from 'Pages/TermsAndConditions';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -35,8 +36,8 @@ const router = createBrowserRouter([
     element: <EventGallery />,
   },
   {
-    path: '/history',
-    element: <History />,
+    path: '/about',
+    element: <About />,
   },
   {
     path: '/faq',
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: '/contact',
     element: <Contact />,
+  },
+  {
+    path: '/terms-and-conditions',
+    element: <TermsAndConditions />,
   },
 ]);
 

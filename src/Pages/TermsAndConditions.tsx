@@ -4,9 +4,9 @@ import { useDarkMode } from 'Context/useDarkMode';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Footer/Footer';
-import FaqContent from 'Components/FaqContent/FaqContent';
+import TermsAndConditionsContent from 'Components/TermsAndConditions/TermsAndConditionsContent';
 
-const Faq: FC = () => {
+const TermsAndConditions: FC = () => {
   const { darkMode } = useDarkMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -18,7 +18,7 @@ const Faq: FC = () => {
       </Grid>
 
       <Grid size={12} sx={{ flexGrow: 1 }}>
-        <FaqContent darkMode={darkMode} />
+        <TermsAndConditionsContent darkMode={darkMode} />
       </Grid>
 
       <Grid size={12}>
@@ -28,4 +28,4 @@ const Faq: FC = () => {
   );
 };
 
-export default Faq;
+export default TermsAndConditions;
