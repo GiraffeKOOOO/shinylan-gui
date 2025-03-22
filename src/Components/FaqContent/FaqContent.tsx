@@ -3,6 +3,7 @@ import { Grid2 as Grid, Stack, Typography } from '@mui/material';
 import VenueInfo from 'Components/VenueInfo/VenueInfo';
 import Colours from 'Components/Shared/Colours';
 import { MockCerneAbbas } from '../../../MockData';
+import FaqSection from 'Components/FaqContent/FaqSection';
 
 type FaqContentProps = {
   darkMode: boolean;
@@ -30,11 +31,11 @@ const FaqContent: FC<FaqContentProps> = ({ darkMode }) => {
               fontFamily: 'Varela Round',
             }}
           >
-            FAQ
+            Frequently Asked Questions
           </Typography>
           {/* main content */}
-          <Stack direction="row" justifyContent="center" sx={{ marginTop: '1.5rem' }}>
-            {/* <FaqSection /> */}
+          <Stack direction="column" justifyContent="center" sx={{ marginTop: '1.5rem' }}>
+            <FaqSection darkMode={darkMode} />
             <VenueInfo darkMode={darkMode} venue={MockCerneAbbas} />
           </Stack>
         </Stack>

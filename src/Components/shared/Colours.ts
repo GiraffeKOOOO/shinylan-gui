@@ -18,6 +18,7 @@ enum Colours {
   titleOrange = 'rgb(249, 130, 1)',
   cardMediaDaysLeftBackground = 'rgba(212, 212, 212, 0.9)',
   cardBorderGrey = 'rgb(197, 197, 197)',
+  faqAccordionBorderGrey = 'rgb(144, 139, 139)',
 }
 
 export default Colours;
