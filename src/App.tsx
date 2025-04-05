@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { RecoilRoot } from 'recoil';
 import { DarkModeProvider } from './Context/DarkModeContext';
 import Home from 'Pages/Home';
 import Event from 'Pages/Event';
@@ -56,9 +57,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <DarkModeProvider>
-        <RouterProvider router={router} />
-      </DarkModeProvider>
+      <RecoilRoot>
+        <DarkModeProvider>
+          <RouterProvider router={router} />
+        </DarkModeProvider>
+      </RecoilRoot>
     </QueryClientProvider>
   );
 }

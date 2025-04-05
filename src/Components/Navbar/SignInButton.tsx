@@ -1,12 +1,16 @@
-import { Button } from '@mui/material';
-import Colours from 'Components/Shared/Colours';
 import { FC } from 'react';
+import { Button } from '@mui/material';
+import { useRecoilState } from 'recoil';
+import { loginModalState } from 'Components/LoginModal/LoginModalState';
+import Colours from 'Components/Shared/Colours';
 
 type SignInButtonProps = {
   darkMode: boolean;
 };
 
 const SignInButton: FC<SignInButtonProps> = ({ darkMode }) => {
+  const [, setLoginModal] = useRecoilState(loginModalState);
+
   return (
     <Button
       variant="text"
@@ -21,7 +25,7 @@ const SignInButton: FC<SignInButtonProps> = ({ darkMode }) => {
           color: darkMode ? Colours.darkText : Colours.lightText,
         },
       }}
-      onClick={() => {}}
+      onClick={() => setLoginModal(true)}
     >
       Sign in
     </Button>

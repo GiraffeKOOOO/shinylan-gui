@@ -1,8 +1,13 @@
-import { Button } from '@mui/material';
-import Colours from 'Components/Shared/Colours';
 import { FC } from 'react';
+import { Button } from '@mui/material';
+import { useRecoilState } from 'recoil';
+import Colours from 'Components/Shared/Colours';
+import { loginModalState, registerModalState } from '../LoginModal/LoginModalState';
 
 const SignUpButton: FC = () => {
+  const [, setLoginModal] = useRecoilState(loginModalState);
+  const [, setRegisterModal] = useRecoilState(registerModalState);
+
   return (
     <Button
       variant="contained"
@@ -15,7 +20,10 @@ const SignUpButton: FC = () => {
         textTransform: 'none',
         paddingX: '0.8rem',
       }}
-      onClick={() => {}}
+      onClick={() => {
+        setRegisterModal(true);
+        setLoginModal(true);
+      }}
     >
       Sign up
     </Button>
