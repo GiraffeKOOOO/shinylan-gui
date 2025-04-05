@@ -126,7 +126,6 @@ const LoginForm: FC<LoginFormProps> = ({
                   border: `1px solid ${Colours.titleOrange}`,
                   borderRadius: '20px',
                   color: darkMode ? Colours.darkText : Colours.titleOrange,
-
                   textDecorationColor: Colours.titleOrange,
                   textTransform: 'none',
                   paddingX: '0.8rem',

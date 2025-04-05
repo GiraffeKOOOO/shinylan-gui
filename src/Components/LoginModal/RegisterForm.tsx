@@ -10,25 +10,57 @@ import {
 } from '@mui/material';
 import { Formik } from 'formik';
 import { SetterOrUpdater } from 'recoil';
+import { useNavigate } from 'react-router';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import Colours from 'Components/Shared/Colours';
 
 type RegisterFormProps = {
   darkMode: boolean;
+  setLoginModal: SetterOrUpdater<boolean>;
   setRegisterModal: SetterOrUpdater<boolean>;
 };
 
-const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setRegisterModal }) => {
+const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegisterModal }) => {
+  const navigate = useNavigate();
+
   return (
     <Formik
-      initialValues={{ userName: '', password: '' }}
+      initialValues={{
+        userName: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        termsAndConditions: false,
+        mailingList: false,
+      }}
       validate={(values) => {
-        const errors: { userName?: string; password?: string } = {};
+        const errors: {
+          userName?: string;
+          firstName?: string;
+          lastName?: string;
+          email?: string;
+          password?: string;
+          confirmPassword?: string;
+        } = {};
         if (!values.userName) {
           errors.userName = 'Username is required';
         }
+        if (!values.firstName) {
+          errors.firstName = 'First name is required';
+        }
+        if (!values.lastName) {
+          errors.lastName = 'Last name is required';
+        }
+        if (!values.email) {
+          errors.email = 'Email is required';
+        }
         if (!values.password) {
           errors.password = 'Password is required';
+        }
+        if (!values.confirmPassword) {
+          errors.confirmPassword = 'Password confirmation is required';
         }
         return errors;
       }}
@@ -40,7 +72,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setRegisterModal }) => 
       }}
     >
       {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-        <Stack direction="column" sx={{ marginX: 'auto' }}>
+        <Stack direction="column" sx={{ marginX: 'auto', height: '635px', overflowY: 'scroll' }}>
           <Typography
             sx={{
               color: darkMode ? Colours.darkText : Colours.lightText,
@@ -161,7 +193,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setRegisterModal }) => 
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
-                helperText={errors.userName && touched.userName ? errors.userName : ''}
+                helperText={errors.password && touched.password ? errors.password : ''}
                 sx={{
                   '& .MuiInputBase-input': {
                     padding: '0.6rem',
@@ -205,11 +237,61 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setRegisterModal }) => 
               />
               <FormGroup>
                 <FormControlLabel
+                  name="termsAndConditions"
+                  value={values.termsAndConditions}
                   required
-                  control={<Checkbox />}
-                  label="I agree to the Terms & Conditions"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  control={
+                    <Checkbox
+                      sx={{
+                        '&.Mui-checked': {
+                          color: Colours.titleOrange,
+                        },
+                      }}
+                    />
+                  }
+                  sx={{
+                    '& .MuiFormControlLabel-asterisk': {
+                      display: 'none',
+                    },
+                  }}
+                  label={
+                    <Typography
+                      sx={{
+                        color: darkMode ? Colours.darkText : Colours.lightText,
+                        cursor: 'pointer',
+                        fontSize: '12px',
+                        '&:hover': {
+                          textDecoration: 'underline',
+                        },
+                      }}
+                      onClick={() => {
+                        setRegisterModal(false);
+                        setLoginModal(false);
+                        navigate('/terms-and-conditions');
+                      }}
+                    >
+                      I agree to the Terms and Conditions
+                    </Typography>
+                  }
                 />
-                <FormControlLabel control={<Checkbox />} label="Subscribe to mailing list" />
+                <FormControlLabel
+                  name="mailingList"
+                  value={values.mailingList}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  control={
+                    <Checkbox
+                      sx={{
+                        '&.Mui-checked': {
+                          color: Colours.titleOrange,
+                        },
+                      }}
+                    />
+                  }
+                  label="Subscribe to mailing list"
+                />
               </FormGroup>
               <Button
                 variant="contained"

@@ -2,9 +2,10 @@ import { FC } from 'react';
 import { IconButton, Stack } from '@mui/material';
 import { SetterOrUpdater } from 'recoil';
 import CancelIcon from '@mui/icons-material/Cancel';
+import LoginForm from 'Components/LoginModal/LoginForm';
+import ForgottenPasswordModal from 'Components/LoginModal/ForgottenPasswordModal';
 import Colours from 'Components/Shared/Colours';
 import shinyLogo from 'Assets/sl-banner.png';
-import LoginForm from 'Components/LoginModal/LoginForm';
 
 type LoginModalProps = {
   darkMode: boolean;
@@ -61,7 +62,10 @@ const LoginModal: FC<LoginModalProps> = ({
             </IconButton>
           </Stack>
           {forgottenPasswordModal ? (
-            <>{/* forgotten password modal here */}</>
+            <ForgottenPasswordModal
+              darkMode={darkMode}
+              setForgottenPasswordModal={setForgottenPasswordModal}
+            />
           ) : (
             <LoginForm
               darkMode={darkMode}

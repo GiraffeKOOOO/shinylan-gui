@@ -54,7 +54,11 @@ const RegisterModal: FC<RegisterModalProps> = ({ darkMode, setLoginModal, setReg
               <CancelIcon sx={{ fontSize: '1.5rem' }} />
             </IconButton>
           </Stack>
-          <RegisterForm darkMode={darkMode} setRegisterModal={setRegisterModal} />
+          <RegisterForm
+            darkMode={darkMode}
+            setLoginModal={setLoginModal}
+            setRegisterModal={setRegisterModal}
+          />
         </Stack>
       </Stack>
     </Stack>
