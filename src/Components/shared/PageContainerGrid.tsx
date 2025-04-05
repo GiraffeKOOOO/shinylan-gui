@@ -1,6 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Grid2 as Grid } from '@mui/material';
 import Colours from 'Components/Shared/Colours';
+import LoginModalProvider from 'Components/LoginModal/LoginModalProvider';
 
 type PageContainerGridProps = {
   darkMode: boolean;
@@ -20,6 +21,7 @@ const PageContainerGrid: FC<PageContainerGridProps> = ({ darkMode, children }) =
       }}
       flexDirection="column"
     >
+      <LoginModalProvider darkMode={darkMode} />
       {children}
     </Grid>
   );
