@@ -55,6 +55,8 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
         }
         if (!values.email) {
           errors.email = 'Email is required';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+          errors.email = 'Invalid email address';
         }
         if (!values.password) {
           errors.password = 'Password is required';
@@ -65,6 +67,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
+        // TODO: connect to backend API for login
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
@@ -72,7 +75,10 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
       }}
     >
       {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-        <Stack direction="column" sx={{ marginX: 'auto', height: '635px', overflowY: 'scroll' }}>
+        <Stack
+          direction="column"
+          sx={{ width: '100%', marginX: 'auto', height: '635px', overflowY: 'scroll' }}
+        >
           <Typography
             sx={{
               color: darkMode ? Colours.darkText : Colours.lightText,
@@ -91,7 +97,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
             <Stack
               direction="column"
               spacing={2}
-              sx={{ marginX: 'auto', marginTop: '1rem', width: '250px' }}
+              sx={{ marginX: 'auto', marginTop: '1rem', width: '320px' }}
             >
               <TextField
                 variant="outlined"
@@ -102,17 +108,26 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                 value={values.userName}
                 helperText={errors.userName && touched.userName ? errors.userName : ''}
                 sx={{
-                  '& .MuiInputBase-input': {
-                    padding: '0.6rem',
-                  },
                   '& .MuiInputLabel-root': {
-                    marginTop: '-0.3rem',
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -125,17 +140,26 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                 value={values.firstName}
                 helperText={errors.firstName && touched.firstName ? errors.firstName : ''}
                 sx={{
-                  '& .MuiInputBase-input': {
-                    padding: '0.6rem',
-                  },
                   '& .MuiInputLabel-root': {
-                    marginTop: '-0.3rem',
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -148,17 +172,26 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                 value={values.lastName}
                 helperText={errors.lastName && touched.lastName ? errors.lastName : ''}
                 sx={{
-                  '& .MuiInputBase-input': {
-                    padding: '0.6rem',
-                  },
                   '& .MuiInputLabel-root': {
-                    marginTop: '-0.3rem',
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -171,17 +204,26 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                 value={values.email}
                 helperText={errors.email && touched.email ? errors.email : ''}
                 sx={{
-                  '& .MuiInputBase-input': {
-                    padding: '0.6rem',
-                  },
                   '& .MuiInputLabel-root': {
-                    marginTop: '-0.3rem',
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -195,17 +237,26 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                 value={values.password}
                 helperText={errors.password && touched.password ? errors.password : ''}
                 sx={{
-                  '& .MuiInputBase-input': {
-                    padding: '0.6rem',
-                  },
                   '& .MuiInputLabel-root': {
-                    marginTop: '-0.3rem',
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -221,17 +272,26 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                   errors.confirmPassword && touched.confirmPassword ? errors.confirmPassword : ''
                 }
                 sx={{
-                  '& .MuiInputBase-input': {
-                    padding: '0.6rem',
-                  },
                   '& .MuiInputLabel-root': {
-                    marginTop: '-0.3rem',
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -245,8 +305,9 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                   control={
                     <Checkbox
                       sx={{
+                        color: darkMode ? Colours.darkText : Colours.lightText,
                         '&.Mui-checked': {
-                          color: Colours.titleOrange,
+                          color: darkMode ? Colours.darkText : Colours.titleOrange,
                         },
                       }}
                     />
@@ -261,7 +322,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                       sx={{
                         color: darkMode ? Colours.darkText : Colours.lightText,
                         cursor: 'pointer',
-                        fontSize: '12px',
+                        fontSize: '14px',
                         '&:hover': {
                           textDecoration: 'underline',
                         },
@@ -284,13 +345,22 @@ const RegisterForm: FC<RegisterFormProps> = ({ darkMode, setLoginModal, setRegis
                   control={
                     <Checkbox
                       sx={{
+                        color: darkMode ? Colours.darkText : Colours.lightText,
                         '&.Mui-checked': {
-                          color: Colours.titleOrange,
+                          color: darkMode ? Colours.darkText : Colours.titleOrange,
                         },
                       }}
                     />
                   }
-                  label="Subscribe to mailing list"
+                  label={
+                    <Typography
+                      sx={{
+                        color: darkMode ? Colours.darkText : Colours.lightText,
+                      }}
+                    >
+                      Subscribe to the mailing list
+                    </Typography>
+                  }
                 />
               </FormGroup>
               <Button

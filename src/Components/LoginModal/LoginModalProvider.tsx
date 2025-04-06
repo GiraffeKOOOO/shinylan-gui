@@ -37,7 +37,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ darkMode }) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 600,
+            width: 700,
             height: registerModal ? 700 : 500,
             backgroundColor: darkMode ? Colours.darkBackgroundFooter : Colours.lightBackground,
             borderRadius: '20px',

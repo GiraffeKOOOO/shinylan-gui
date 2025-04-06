@@ -7,8 +7,8 @@ import MenuButton from 'Components/Navbar/MenuButton';
 import NavButton from 'Components/Navbar/NavButton';
 import SignInButton from 'Components/Navbar/SignInButton';
 import SignUpButton from 'Components/Navbar/SignUpButton';
-import Colours from 'Components/Shared/Colours';
 import shinyLogo from '../../Assets/sl-banner.png';
+import Colours from 'Components/Shared/Colours';
 
 type NavbarProps = {
   darkMode: boolean;

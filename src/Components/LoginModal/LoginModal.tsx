@@ -28,7 +28,7 @@ const LoginModal: FC<LoginModalProps> = ({
       <Stack direction="row" justifyContent="center" sx={{ margin: 'auto', flexGrow: 1 }}>
         <Stack
           sx={{
-            backgroundColor: darkMode ? Colours.darkBackground : Colours.titleOrange,
+            backgroundColor: Colours.titleOrange,
             borderTopLeftRadius: '20px',
             borderBottomLeftRadius: '20px',
             marginX: 'auto',
@@ -39,7 +39,7 @@ const LoginModal: FC<LoginModalProps> = ({
           <img src={shinyLogo} width={250} height={60} style={{ margin: 'auto' }} />
         </Stack>
         {/* form column */}
-        <Stack direction="column" sx={{ width: '300px' }}>
+        <Stack direction="column" sx={{ width: '400px' }}>
           <Stack
             alignItems="flex-end"
             sx={{

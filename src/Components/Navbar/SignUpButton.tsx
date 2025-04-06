@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Button } from '@mui/material';
 import { useRecoilState } from 'recoil';
-import Colours from 'Components/Shared/Colours';
 import { loginModalState, registerModalState } from '../LoginModal/LoginModalState';
+import Colours from 'Components/Shared/Colours';
 
 const SignUpButton: FC = () => {
   const [, setLoginModal] = useRecoilState(loginModalState);

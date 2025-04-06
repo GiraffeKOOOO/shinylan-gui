@@ -64,11 +64,26 @@ const LoginForm: FC<LoginFormProps> = ({
                 value={values.userName}
                 helperText={errors.userName && touched.userName ? errors.userName : ''}
                 sx={{
+                  '& .MuiInputLabel-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -82,11 +97,26 @@ const LoginForm: FC<LoginFormProps> = ({
                 value={values.password}
                 helperText={errors.password && touched.password ? errors.password : ''}
                 sx={{
+                  '& .MuiInputLabel-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiInputLabel-root.Mui-focused': {
                     color: darkMode ? Colours.darkText : Colours.titleOrange,
                   },
+                  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.lightText,
+                  },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: darkMode ? Colours.darkText : Colours.titleOrange,
+                  },
+                  '& .MuiInputBase-input': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
+                  },
+                  '& .MuiFormHelperText-root': {
+                    color: darkMode ? Colours.darkText : Colours.lightText,
                   },
                 }}
               />
@@ -123,7 +153,7 @@ const LoginForm: FC<LoginFormProps> = ({
               <Button
                 variant="text"
                 sx={{
-                  border: `1px solid ${Colours.titleOrange}`,
+                  border: `1px solid ${darkMode ? Colours.darkText : Colours.titleOrange}`,
                   borderRadius: '20px',
                   color: darkMode ? Colours.darkText : Colours.titleOrange,
                   textDecorationColor: Colours.titleOrange,
