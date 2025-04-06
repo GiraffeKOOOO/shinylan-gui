@@ -37,6 +37,9 @@ const Footer: FC<FooterProps> = ({ darkMode }) => {
             sx={{
               color: darkMode ? Colours.darkText : Colours.lightText,
               cursor: 'pointer',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
             }}
             onClick={() => navigate('/terms-and-conditions')}
           >

@@ -20,8 +20,10 @@
     <li>TypeScript</li>
     <li>Vite</li>
     <li>React Router</li>
+    <li>Tanstack Query</li>
     <li>Material UI</li>
     <li>React Icons</li>
     <li>Material Design Icons</li>
     <li>React Simple Image Viewer</li>
+    <li>Recoil JS</li>
 </ul>
