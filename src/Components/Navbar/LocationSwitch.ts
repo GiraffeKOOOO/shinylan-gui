@@ -21,6 +21,17 @@ const LocationSwitch = (page: Pages, navigate: NavigateFunction) => {
     case Pages.Contact:
       navigate('/contact');
       break;
+    case Pages.Profile:
+      // navigate('/user-profile');
+      // TODO: temporary override, remove when user profile is implemented
+      navigate('/user-profile?id=1');
+      break;
+    case Pages.OrderHistory:
+      navigate('/order-history');
+      break;
+    case Pages.LogOut:
+      navigate('/logout');
+      break;
     default:
       navigate('/');
   }

@@ -19,6 +19,7 @@ enum Colours {
   cardMediaDaysLeftBackground = 'rgba(212, 212, 212, 0.9)',
   cardBorderGrey = 'rgb(197, 197, 197)',
   faqAccordionBorderGrey = 'rgb(144, 139, 139)',
+  navbarMenuDarkBackground = 'rgb(70, 78, 93)',
 }
 
 export default Colours;

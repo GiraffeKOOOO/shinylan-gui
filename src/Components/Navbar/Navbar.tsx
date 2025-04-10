@@ -1,13 +1,17 @@
 import { FC, useState, MouseEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { AppBar, Container, Grid2 as Grid, Menu, Stack, Toolbar } from '@mui/material';
+import { useRecoilState } from 'recoil';
+import { OVERRIDE } from 'Components/LoginModal/LoginModalState';
 import { Pages } from 'Components/Shared/Types';
 import DarkModeButton from 'Components/Navbar/DarkModeButton';
 import MenuButton from 'Components/Navbar/MenuButton';
 import NavButton from 'Components/Navbar/NavButton';
+import NavbarMenuItem from 'Components/Navbar/NavbarMenuItem';
 import SignInButton from 'Components/Navbar/SignInButton';
 import SignUpButton from 'Components/Navbar/SignUpButton';
-import shinyLogo from '../../Assets/sl-banner.png';
+import slBannerLight from 'Assets/sl-banner-light.png';
+import slBannerDark from 'Assets/sl-banner-dark.png';
 import Colours from 'Components/Shared/Colours';
 
 type NavbarProps = {
@@ -20,8 +24,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   // TODO: this needs to be removed when actual user state is here
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+  const [overide] = useRecoilState(OVERRIDE);
 
   const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -45,8 +48,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
           <Grid size={9}>
             <Toolbar disableGutters={true}>
               <img
-                // src={darkMode ? logoWhite : logoDark}
-                src={shinyLogo}
+                src={darkMode ? slBannerDark : slBannerLight}
                 alt="shiny lan logo"
                 style={{
                   height: '3rem',
@@ -59,11 +61,11 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
                 onClick={() => navigate('/')}
               />
               <Stack direction="row" justifyContent="space-between">
-                <NavButton isMobile={isMobile} page={Pages.Events} />
-                <NavButton isMobile={isMobile} page={Pages.Gallery} />
-                <NavButton isMobile={isMobile} page={Pages.About} />
-                <NavButton isMobile={isMobile} page={Pages.Faq} />
-                <NavButton isMobile={isMobile} page={Pages.Contact} />
+                <NavButton darkMode={darkMode} isMobile={isMobile} page={Pages.Events} />
+                <NavButton darkMode={darkMode} isMobile={isMobile} page={Pages.Gallery} />
+                <NavButton darkMode={darkMode} isMobile={isMobile} page={Pages.About} />
+                <NavButton darkMode={darkMode} isMobile={isMobile} page={Pages.Faq} />
+                <NavButton darkMode={darkMode} isMobile={isMobile} page={Pages.Contact} />
               </Stack>
             </Toolbar>
           </Grid>
@@ -72,7 +74,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
           <Grid size={3}>
             <Stack direction="row" spacing={2}>
               <DarkModeButton />
-              {userLoggedIn ? (
+              {overide ? (
                 <>
                   <MenuButton
                     isOpen={false}
@@ -89,7 +91,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
                         // maxWidth: '1900px',
                         width: '12rem',
                         backgroundColor: darkMode
-                          ? Colours.darkBackground
+                          ? Colours.navbarMenuDarkBackground
                           : Colours.lightBackground,
                       },
                     }}
@@ -107,10 +109,9 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
                     onClose={handleCloseUserMenu}
                   >
                     {/* Drop Down Menu */}
-                    {/* <NavbarMenuItem setting="Event Tickets" />
-              <NavbarMenuItem setting="Settings" />
-              {userLoggedIn && <NavbarMenuItem setting="Sign out" />} */}
-                    <DarkModeButton />
+                    <NavbarMenuItem darkMode={darkMode} page={Pages.Profile} />
+                    <NavbarMenuItem darkMode={darkMode} page={Pages.OrderHistory} />
+                    <NavbarMenuItem darkMode={darkMode} page={Pages.LogOut} />
                   </Menu>
                 </>
               ) : (

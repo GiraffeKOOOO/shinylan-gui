@@ -14,3 +14,8 @@ export const forgottenPasswordModalState = atom({
   key: 'forgottenPasswordModalState',
   default: false,
 });
+
+export const OVERRIDE = atom({
+  key: 'OVERRIDE',
+  default: false,
+});

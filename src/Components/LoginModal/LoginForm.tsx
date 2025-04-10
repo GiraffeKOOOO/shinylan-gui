@@ -9,12 +9,14 @@ type LoginFormProps = {
   darkMode: boolean;
   setRegisterModal: SetterOrUpdater<boolean>;
   setForgottenPasswordModal: SetterOrUpdater<boolean>;
+  setOverride: SetterOrUpdater<boolean>;
 };
 
 const LoginForm: FC<LoginFormProps> = ({
   darkMode,
   setRegisterModal,
   setForgottenPasswordModal,
+  setOverride,
 }) => {
   return (
     <Formik
@@ -163,6 +165,20 @@ const LoginForm: FC<LoginFormProps> = ({
                 onClick={() => setRegisterModal(true)}
               >
                 Sign Up
+              </Button>
+              <Button
+                variant="text"
+                sx={{
+                  border: `1px solid ${darkMode ? Colours.darkText : Colours.titleOrange}`,
+                  borderRadius: '20px',
+                  color: darkMode ? Colours.darkText : Colours.titleOrange,
+                  textDecorationColor: Colours.titleOrange,
+                  textTransform: 'none',
+                  paddingX: '0.8rem',
+                }}
+                onClick={() => setOverride(true)}
+              >
+                OVERRIDE
               </Button>
             </Stack>
           </form>

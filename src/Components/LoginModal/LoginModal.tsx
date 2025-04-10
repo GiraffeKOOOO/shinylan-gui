@@ -4,8 +4,8 @@ import { SetterOrUpdater } from 'recoil';
 import CancelIcon from '@mui/icons-material/Cancel';
 import LoginForm from 'Components/LoginModal/LoginForm';
 import ForgottenPasswordModal from 'Components/LoginModal/ForgottenPasswordModal';
+import slBannerLight from 'Assets/sl-banner-light.png';
 import Colours from 'Components/Shared/Colours';
-import shinyLogo from 'Assets/sl-banner.png';
 
 type LoginModalProps = {
   darkMode: boolean;
@@ -13,6 +13,7 @@ type LoginModalProps = {
   setLoginModal: SetterOrUpdater<boolean>;
   setRegisterModal: SetterOrUpdater<boolean>;
   setForgottenPasswordModal: SetterOrUpdater<boolean>;
+  setOverride: SetterOrUpdater<boolean>;
 };
 
 const LoginModal: FC<LoginModalProps> = ({
@@ -21,6 +22,7 @@ const LoginModal: FC<LoginModalProps> = ({
   setLoginModal,
   setRegisterModal,
   setForgottenPasswordModal,
+  setOverride,
 }) => {
   return (
     <Stack direction="column">
@@ -36,7 +38,7 @@ const LoginModal: FC<LoginModalProps> = ({
             height: '500px',
           }}
         >
-          <img src={shinyLogo} width={250} height={60} style={{ margin: 'auto' }} />
+          <img src={slBannerLight} width={250} height={60} style={{ margin: 'auto' }} />
         </Stack>
         {/* form column */}
         <Stack direction="column" sx={{ width: '400px' }}>
@@ -71,6 +73,7 @@ const LoginModal: FC<LoginModalProps> = ({
               darkMode={darkMode}
               setRegisterModal={setRegisterModal}
               setForgottenPasswordModal={setForgottenPasswordModal}
+              setOverride={setOverride}
             />
           )}
         </Stack>

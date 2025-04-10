@@ -3,8 +3,8 @@ import { IconButton, Stack } from '@mui/material';
 import { SetterOrUpdater } from 'recoil';
 import CancelIcon from '@mui/icons-material/Cancel';
 import RegisterForm from 'Components/LoginModal/RegisterForm';
+import slBannerLight from 'Assets/sl-banner-light.png';
 import Colours from 'Components/Shared/Colours';
-import shinyLogo from 'Assets/sl-banner.png';
 
 type RegisterModalProps = {
   darkMode: boolean;
@@ -27,7 +27,7 @@ const RegisterModal: FC<RegisterModalProps> = ({ darkMode, setLoginModal, setReg
             height: '700px',
           }}
         >
-          <img src={shinyLogo} width={250} height={60} style={{ margin: 'auto' }} />
+          <img src={slBannerLight} width={250} height={60} style={{ margin: 'auto' }} />
         </Stack>
         {/* form column */}
         <Stack direction="column" sx={{ width: '400px' }}>
