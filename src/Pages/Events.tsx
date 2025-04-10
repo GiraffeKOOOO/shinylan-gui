@@ -11,6 +11,7 @@ const Events: FC = () => {
   const { darkMode } = useDarkMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const upcomingEvents = MockEvents.filter((event) => event.finished === false);
 
   return (
     <PageContainerGrid darkMode={darkMode}>
@@ -20,7 +21,7 @@ const Events: FC = () => {
 
       <Grid size={12} sx={{ flexGrow: 1 }}>
         {/* list of events */}
-        <EventsList darkMode={darkMode} isMobile={isMobile} events={MockEvents} />
+        <EventsList darkMode={darkMode} isMobile={isMobile} events={upcomingEvents} />
       </Grid>
 
       <Grid size={12}>

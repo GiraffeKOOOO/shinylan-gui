@@ -1,18 +1,17 @@
 import { FC } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router';
-import { useDarkMode } from 'Context/useDarkMode';
 import { Pages } from 'Components/Shared/Types';
 import LocationSwitch from 'Components/Navbar/LocationSwitch';
 import Colours from 'Components/Shared/Colours';
 
 type ButtonProps = {
+  darkMode: boolean;
   isMobile: boolean;
   page: Pages;
 };
 
-const NavButton: FC<ButtonProps> = ({ isMobile, page }) => {
-  const { darkMode } = useDarkMode();
+const NavButton: FC<ButtonProps> = ({ darkMode, isMobile, page }) => {
   const navigate = useNavigate();
 
   //  TODO: pick this up when working on mobile

@@ -5,6 +5,7 @@ import {
   loginModalState,
   registerModalState,
   forgottenPasswordModalState,
+  OVERRIDE,
 } from './LoginModalState';
 import LoginModal from 'Components/LoginModal/LoginModal';
 import RegisterModal from 'Components/LoginModal/RegisterModal';
@@ -20,6 +21,8 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ darkMode }) => {
   const [forgottenPasswordModal, setForgottenPasswordModal] = useRecoilState(
     forgottenPasswordModalState,
   );
+  // TODO: remove this when there is a backend fetching user data
+  const [, setOverride] = useRecoilState(OVERRIDE);
 
   return (
     <>
@@ -57,6 +60,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ darkMode }) => {
               setRegisterModal={setRegisterModal}
               forgottenPasswordModal={forgottenPasswordModal}
               setForgottenPasswordModal={setForgottenPasswordModal}
+              setOverride={setOverride}
             />
           )}
         </Box>

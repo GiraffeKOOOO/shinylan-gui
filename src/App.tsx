@@ -11,6 +11,8 @@ import About from 'Pages/About';
 import Faq from 'Pages/Faq';
 import Contact from 'Pages/Contact';
 import TermsAndConditions from 'Pages/TermsAndConditions';
+import UserProfile from 'Pages/UserProfile';
+import OrderHistory from 'Pages/OrderHistory';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
   {
     path: '/terms-and-conditions',
     element: <TermsAndConditions />,
+  },
+  {
+    path: '/user-profile',
+    element: <UserProfile />,
+  },
+  {
+    path: '/order-history',
+    element: <OrderHistory />,
   },
 ]);
 

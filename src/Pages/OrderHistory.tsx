@@ -4,15 +4,12 @@ import { useDarkMode } from 'Context/useDarkMode';
 import PageContainerGrid from 'Components/Shared/PageContainerGrid';
 import Navbar from 'Components/Navbar/Navbar';
 import Footer from 'Components/Footer/Footer';
-import MainBanner from 'Components/MainBanner/MainBanner';
-import UpcomingEvents from 'Components/UpcomingEvents/UpcomingEvents';
-import { MockEvents } from '../../MockData';
+import GalleryEventList from 'Components/Gallery/GalleryEventList';
 
-const Home: FC = () => {
+const Gallery: FC = () => {
   const { darkMode } = useDarkMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const upcomingEvents = MockEvents.filter((event) => event.finished === false);
 
   return (
     <PageContainerGrid darkMode={darkMode}>
@@ -21,8 +18,7 @@ const Home: FC = () => {
       </Grid>
 
       <Grid size={12} sx={{ flexGrow: 1 }}>
-        <MainBanner />
-        <UpcomingEvents darkMode={darkMode} isMobile={isMobile} events={upcomingEvents} />
+        <GalleryEventList darkMode={darkMode} />
       </Grid>
 
       <Grid size={12}>
@@ -32,4 +28,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default Gallery;
