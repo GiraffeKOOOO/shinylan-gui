@@ -1,15 +1,15 @@
 import { FC } from 'react';
 import { Card, Divider, Stack, Typography } from '@mui/material';
-import { Order } from 'Components/Shared/Types';
+import { Event } from 'Components/Shared/Types';
+import ViewEventButton from 'Components/UserProfile/ViewEventButton';
 import Colours from 'Components/Shared/Colours';
-import ViewOrderButton from 'Components/UserProfile/ViewOrderButton';
 
-type OrderHistoryCardRowProps = {
+type EventHistoryCardRowProps = {
   darkMode: boolean;
-  order: Order;
+  event: Event;
 };
 
-const OrderHistoryCardRow: FC<OrderHistoryCardRowProps> = ({ darkMode, order }) => {
+const EventHistoryCardRow: FC<EventHistoryCardRowProps> = ({ darkMode, event }) => {
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat('en-GB', {
       weekday: 'short', // "Friday"
@@ -31,41 +31,37 @@ const OrderHistoryCardRow: FC<OrderHistoryCardRowProps> = ({ darkMode, order }) 
         }}
       >
         <Stack direction="column" sx={{ marginX: '0.2rem' }}>
-          <Typography>Id</Typography>
-          <Divider orientation="horizontal" sx={{ marginX: '0.1rem' }} />
-          <Typography>{order.id}</Typography>
+          <Typography>
+            {event.type} {event.dateFrom.getFullYear()}
+          </Typography>
         </Stack>
         <Divider orientation="vertical" sx={{ marginX: '0.1rem' }} />
         <Stack direction="column" sx={{ marginX: '0.2rem' }}>
-          <Typography>Items </Typography>
+          <Typography>Date </Typography>
           <Divider orientation="horizontal" sx={{ marginX: '0.1rem' }} />
-          <Typography>{order.items.length}</Typography>
+          <Typography>
+            {formatDate(event.dateFrom)} → {formatDate(event.dateTo)}
+          </Typography>
         </Stack>
         <Divider orientation="vertical" sx={{ marginX: '0.1rem' }} />
         <Stack direction="column" sx={{ marginX: '0.2rem' }}>
-          <Typography>Total</Typography>
+          <Typography>Venue</Typography>
           <Divider orientation="horizontal" sx={{ marginX: '0.1rem' }} />
-          <Typography>{order.orderTotal}</Typography>
+          <Typography>{event.venue.name}</Typography>
         </Stack>
         <Divider orientation="vertical" sx={{ marginX: '0.1rem' }} />
         <Stack direction="column" sx={{ marginX: '0.2rem' }}>
-          <Typography>Status</Typography>
+          <Typography>Attendees</Typography>
           <Divider orientation="horizontal" sx={{ marginX: '0.1rem' }} />
-          <Typography>{order.status}</Typography>
+          {event.signups} / {event.venue.capacity}
         </Stack>
         <Divider orientation="vertical" sx={{ marginX: '0.1rem' }} />
-        <Stack direction="column" sx={{ marginX: '0.2rem' }}>
-          <Typography>Order created</Typography>
-          <Divider orientation="horizontal" sx={{ marginX: '0.1rem' }} />
-          <Typography>{formatDate(order.orderCreatedDate)}</Typography>
-        </Stack>
-        <Divider orientation="vertical" sx={{ marginX: '0.1rem' }} />
-        <Stack sx={{ width: '8rem' }}>
-          <ViewOrderButton order={order} darkMode={darkMode} />
+        <Stack sx={{ width: '13rem', p: '0.4rem' }}>
+          <ViewEventButton event={event} darkMode={darkMode} />
         </Stack>
       </Stack>
     </Card>
   );
 };
 
-export default OrderHistoryCardRow;
+export default EventHistoryCardRow;

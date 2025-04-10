@@ -67,6 +67,26 @@ export type Order = {
   status: OrderStatus;
 };
 
+export enum UserSocialPlatforms {
+  discord = 'Discord',
+  steam = 'Steam',
+}
+
+export type DiscordSocial = {
+  type: UserSocialPlatforms.discord;
+  value: string;
+};
+
+export type SteamSocial = {
+  type: UserSocialPlatforms.steam;
+  value: string;
+};
+
+export type UserSocials = {
+  discord: DiscordSocial | null;
+  steam: SteamSocial | null;
+};
+
 export type User = {
   id: number;
   userName: string;
@@ -79,6 +99,7 @@ export type User = {
   phoneNumber?: string;
   orderHistory: Order[];
   eventHistory: Event[];
+  socials: UserSocials;
 };
 
 export enum Pages {

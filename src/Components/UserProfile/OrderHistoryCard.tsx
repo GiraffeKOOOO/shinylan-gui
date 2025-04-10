@@ -56,14 +56,10 @@ const OrderHistoryCard: FC<OrderHistoryCardProps> = ({ darkMode, userOrderHistor
           />
         </Stack>
         <Stack direction="column" spacing={2}>
-          {/* content here */}
           <OrderHistoryCardContent darkMode={darkMode} userOrderHistory={sortedUserOrderHistory} />
-          {/* {userOrderHistory.map((order) => (
-            <OrderHistoryCardRow key={order.id} darkMode={darkMode} order={order} />
-          ))} */}
         </Stack>
         <Stack alignItems="flex-end" sx={{ marginTop: '0.5rem' }}>
-          {userOrderHistory.length > 0 && (
+          {userOrderHistory.length >= 3 && (
             <Button
               variant="text"
               endIcon={<VisibilityIcon />}

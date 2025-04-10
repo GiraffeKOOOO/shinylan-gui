@@ -13,7 +13,7 @@ const OrderHistoryCardContent: FC<OrderHistoryCardContentProps> = ({
   darkMode,
   userOrderHistory,
 }) => {
-  if (userOrderHistory.length === 0) return <Typography>You have no orders</Typography>;
+  if (userOrderHistory.length === 0) return <Typography>There is no Order history</Typography>;
 
   if (userOrderHistory.length <= 2) {
     return (

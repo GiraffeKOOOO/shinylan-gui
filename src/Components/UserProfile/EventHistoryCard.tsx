@@ -4,6 +4,7 @@ import { User } from 'Components/Shared/Types';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { MdEventRepeat } from 'react-icons/md';
 import Colours from 'Components/Shared/Colours';
+import EventHistoryCardContent from 'Components/UserProfile/EventHistoryCardContent';
 
 type EventHistoryCardProps = {
   darkMode: boolean;
@@ -11,6 +12,12 @@ type EventHistoryCardProps = {
 };
 
 const EventHistoryCard: FC<EventHistoryCardProps> = ({ darkMode, userEventHistory }) => {
+  const sortedUserEventHistory = userEventHistory.sort((a, b) => {
+    const dateA = new Date(a.dateFrom).getTime();
+    const dateB = new Date(b.dateFrom).getTime();
+    return dateB - dateA;
+  });
+
   return (
     <Card
       sx={{
@@ -47,27 +54,25 @@ const EventHistoryCard: FC<EventHistoryCardProps> = ({ darkMode, userEventHistor
             style={{ color: darkMode ? Colours.darkText : Colours.lightText, marginTop: '-0.3rem' }}
           />
         </Stack>
-        <Stack direction="row">
-          <Stack>
-            <Typography sx={{ color: darkMode ? Colours.darkText : Colours.lightText }}>
-              First Name: {user.firstName}
-            </Typography>
-          </Stack>
+        <Stack direction="column" spacing={2}>
+          <EventHistoryCardContent darkMode={darkMode} userEventHistory={sortedUserEventHistory} />
         </Stack>
         <Stack alignItems="flex-end" sx={{ marginTop: '0.5rem' }}>
-          <Button
-            variant="text"
-            endIcon={<VisibilityIcon />}
-            sx={{
-              width: '170px',
-              color: darkMode ? Colours.darkText : Colours.lightText,
-              textDecorationColor: Colours.titleOrange,
-              textTransform: 'none',
-            }}
-            // onClick={() => goToEditDetails(false)}
-          >
-            View Event History
-          </Button>
+          {sortedUserEventHistory.length >= 3 && (
+            <Button
+              variant="text"
+              endIcon={<VisibilityIcon />}
+              sx={{
+                width: '170px',
+                color: darkMode ? Colours.darkText : Colours.lightText,
+                textDecorationColor: Colours.titleOrange,
+                textTransform: 'none',
+              }}
+              // onClick={() => goToEditDetails(false)}
+            >
+              View Event History
+            </Button>
+          )}
         </Stack>
       </CardContent>
     </Card>

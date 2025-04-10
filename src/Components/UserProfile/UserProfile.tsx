@@ -2,8 +2,9 @@ import { FC } from 'react';
 import { Grid2 as Grid, Stack, Typography } from '@mui/material';
 import { User } from 'Components/Shared/Types';
 import Colours from 'Components/Shared/Colours';
-import UserProfileCard from 'Components/UserProfile/UserProfileCard';
+
 import UserSections from 'Components/UserProfile/UserSections';
+import UserProfileSections from 'Components/UserProfile/UserProfileSections';
 
 type UserProfileProps = {
   darkMode: boolean;
@@ -37,7 +38,7 @@ const UserProfile: FC<UserProfileProps> = ({ darkMode, user }) => {
           {/* List of gallery folders */}
           <Grid container spacing={10} justifyContent="center" sx={{ marginTop: '2rem' }}>
             {/* main content here */}
-            <UserProfileCard darkMode={darkMode} user={user} />
+            <UserProfileSections darkMode={darkMode} user={user} />
             <UserSections darkMode={darkMode} user={user} />
           </Grid>
         </Stack>
