@@ -15,7 +15,7 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
     <Grid container justifyContent="space-between" sx={{ height: 'calc(100vh - 100px)' }}>
       {/* side panel */}
       <Grid size={drawerHidden ? 0.4 : 1.3} sx={{ height: 'calc(100vh - 100px)' }}>
-        <AdminDashboardSidepanel darkMode={darkMode} />
+        <AdminDashboardSidepanel darkMode={darkMode} path="overview" />
       </Grid>
 
       {/* dashboard content */}

@@ -117,15 +117,15 @@ export enum Pages {
 }
 
 export enum AdminDashboardTabs {
-  Overview = 'Overview',
-  Events = 'Events',
-  Venues = 'Venues',
-  EventProducts = 'Event Products',
-  AllOrders = 'All Orders',
-  Tickets = 'Tickets',
-  Addons = 'Addons',
-  Merchandise = 'Merchandise',
-  Users = 'Users',
+  Overview = 'overview',
+  Events = 'events',
+  Venues = 'venues',
+  EventProducts = 'even-products',
+  AllOrders = 'all-orders',
+  Tickets = 'tickets',
+  Addons = 'addons',
+  Merchandise = 'merchandise',
+  Users = 'users',
 }
 
 export enum Socials {

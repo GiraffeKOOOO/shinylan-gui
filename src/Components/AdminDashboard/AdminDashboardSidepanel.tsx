@@ -3,7 +3,6 @@ import {
   Card,
   Divider,
   List,
-  ListItem,
   ListItemButton,
   ListItemText,
   Stack,
@@ -19,9 +18,10 @@ import Colours from 'Components/Shared/Colours';
 
 type AdminDashboardSidepanelProps = {
   darkMode: boolean;
+  path: string;
 };
 
-const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode }) => {
+const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode, path }) => {
   const [drawerHidden, setDrawerHidden] = useRecoilState(sidePanelState);
 
   return (
@@ -40,9 +40,11 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode })
         <Stack>
           {/* overview */}
           <SidePanelNavButton
+            index={0}
             darkMode={darkMode}
             drawerHidden={drawerHidden}
             button={AdminDashboardTabs.Overview}
+            path={path}
           />
 
           <Divider />
@@ -66,13 +68,13 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode })
               AdminDashboardTabs.Venues,
               AdminDashboardTabs.EventProducts,
             ].map((value, index) => (
-              <ListItem disablePadding key={index}>
-                <SidePanelNavButton
-                  darkMode={darkMode}
-                  drawerHidden={drawerHidden}
-                  button={value}
-                />
-              </ListItem>
+              <SidePanelNavButton
+                index={index}
+                darkMode={darkMode}
+                drawerHidden={drawerHidden}
+                button={value}
+                path={path}
+              />
             ))}
           </List>
 
@@ -98,13 +100,13 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode })
               AdminDashboardTabs.Addons,
               AdminDashboardTabs.Merchandise,
             ].map((value, index) => (
-              <ListItem disablePadding key={index}>
-                <SidePanelNavButton
-                  darkMode={darkMode}
-                  drawerHidden={drawerHidden}
-                  button={value}
-                />
-              </ListItem>
+              <SidePanelNavButton
+                index={index}
+                darkMode={darkMode}
+                drawerHidden={drawerHidden}
+                button={value}
+                path={path}
+              />
             ))}
           </List>
 
@@ -125,13 +127,13 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode })
               </Typography>
             )}
             {[AdminDashboardTabs.Users].map((value, index) => (
-              <ListItem disablePadding key={index}>
-                <SidePanelNavButton
-                  darkMode={darkMode}
-                  drawerHidden={drawerHidden}
-                  button={value}
-                />
-              </ListItem>
+              <SidePanelNavButton
+                index={index}
+                darkMode={darkMode}
+                drawerHidden={drawerHidden}
+                button={value}
+                path={path}
+              />
             ))}
           </List>
         </Stack>
@@ -139,7 +141,12 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode })
         <Stack>
           {/* collapse */}
           <ListItemButton
-            sx={{ marginY: 'auto' }}
+            sx={{
+              marginY: 'auto',
+              '&:hover': {
+                backgroundColor: darkMode ? Colours.lightBackground : Colours.lightBackgroundFooter,
+              },
+            }}
             onClick={() => {
               setDrawerHidden(!drawerHidden);
             }}

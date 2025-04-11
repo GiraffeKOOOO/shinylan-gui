@@ -23,7 +23,7 @@ const NavbarMenuItem: FC<MenuItemProps> = ({ darkMode, page }) => {
       sx={{
         paddingX: '1rem',
         '&:hover': {
-          backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackground,
+          backgroundColor: darkMode ? Colours.darkBackground : Colours.lightBackgroundFooter,
         },
       }}
     >

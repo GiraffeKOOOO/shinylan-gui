@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ListItemButton, ListItemText } from '@mui/material';
+import { ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { FaChartPie } from 'react-icons/fa';
 import { AdminDashboardTabs } from 'Components/Shared/Types';
@@ -15,9 +15,11 @@ import Colours from 'Components/Shared/Colours';
 import AdminLocationSwitch from 'Components/AdminDashboard/AdminLocationSwitch';
 
 type SidePanelNavButtonProps = {
+  index: number;
   darkMode: boolean;
   button: AdminDashboardTabs;
   drawerHidden: boolean;
+  path: string;
 };
 
 const drawerHiddenButtonStyle = {
@@ -164,18 +166,36 @@ const iconSwitch = (darkMode: boolean, button: AdminDashboardTabs, drawerHidden:
   }
 };
 
-const SidePanelNavButton: FC<SidePanelNavButtonProps> = ({ darkMode, button, drawerHidden }) => {
+const SidePanelNavButton: FC<SidePanelNavButtonProps> = ({
+  index,
+  darkMode,
+  button,
+  drawerHidden,
+  path,
+}) => {
   const navigate = useNavigate();
+
   return (
-    <ListItemButton sx={{ marginY: 'auto' }} onClick={() => AdminLocationSwitch(button, navigate)}>
-      {drawerHidden && iconSwitch(darkMode, button, drawerHidden)}
-      {!drawerHidden && (
-        <>
-          {iconSwitch(darkMode, button, drawerHidden)}
-          <ListItemText>{button}</ListItemText>
-        </>
-      )}
-    </ListItemButton>
+    <ListItem disablePadding key={index}>
+      <ListItemButton
+        sx={{
+          marginY: 'auto',
+          backgroundColor: path === button ? Colours.lightBackgroundFooter : 'none',
+          '&:hover': {
+            backgroundColor: darkMode ? Colours.lightBackground : Colours.lightBackgroundFooter,
+          },
+        }}
+        onClick={() => AdminLocationSwitch(button, navigate)}
+      >
+        {drawerHidden && iconSwitch(darkMode, button, drawerHidden)}
+        {!drawerHidden && (
+          <>
+            {iconSwitch(darkMode, button, drawerHidden)}
+            <ListItemText>{button}</ListItemText>
+          </>
+        )}
+      </ListItemButton>
+    </ListItem>
   );
 };
 
