@@ -12,16 +12,16 @@ import {
 } from '@mui/material';
 import Colours from 'Components/Shared/Colours';
 import { AdminDashboardTabs } from 'Components/Shared/Types';
-import { FaHome } from 'react-icons/fa';
 import { TbLayoutSidebarLeftCollapseFilled } from 'react-icons/tb';
 import { TbLayoutSidebarRightCollapseFilled } from 'react-icons/tb';
+import SidePanelNavButton from 'Components/AdminDashboard/SidePanelNavButton';
 
 type AdminDashboardProps = {
   darkMode: boolean;
 };
 
 const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
-  const [drawerHidden, setDrawerHidden] = useState<boolean>(true);
+  const [drawerHidden, setDrawerHidden] = useState<boolean>(false);
 
   return (
     <Grid container justifyContent="space-between" sx={{ height: 'calc(100vh - 100px)' }}>
@@ -41,20 +41,11 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
           <Stack direction="column" justifyContent="space-between" sx={{ height: '100%' }}>
             <Stack>
               {/* overview */}
-              <ListItemButton sx={{ marginY: 'auto' }}>
-                {drawerHidden && (
-                  <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
-                )}
-                {!drawerHidden && (
-                  <>
-                    <FaHome
-                      size={18}
-                      style={{ marginRight: '0.5rem', marginTop: 'auto', marginBottom: 'auto' }}
-                    />
-                    <ListItemText>Overview</ListItemText>
-                  </>
-                )}
-              </ListItemButton>
+              <SidePanelNavButton
+                darkMode={darkMode}
+                drawerHidden={drawerHidden}
+                button={AdminDashboardTabs.Overview}
+              />
 
               <Divider />
 
@@ -78,24 +69,11 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
                   AdminDashboardTabs.EventProducts,
                 ].map((value, index) => (
                   <ListItem disablePadding key={index}>
-                    <ListItemButton sx={{ marginY: 'auto' }}>
-                      {drawerHidden && (
-                        <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
-                      )}
-                      {!drawerHidden && (
-                        <>
-                          <FaHome
-                            size={18}
-                            style={{
-                              marginRight: '0.5rem',
-                              marginTop: 'auto',
-                              marginBottom: 'auto',
-                            }}
-                          />
-                          <ListItemText>{value}</ListItemText>
-                        </>
-                      )}
-                    </ListItemButton>
+                    <SidePanelNavButton
+                      darkMode={darkMode}
+                      drawerHidden={drawerHidden}
+                      button={value}
+                    />
                   </ListItem>
                 ))}
               </List>
@@ -123,24 +101,11 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
                   AdminDashboardTabs.Merchandise,
                 ].map((value, index) => (
                   <ListItem disablePadding key={index}>
-                    <ListItemButton sx={{ marginY: 'auto' }}>
-                      {drawerHidden && (
-                        <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
-                      )}
-                      {!drawerHidden && (
-                        <>
-                          <FaHome
-                            size={18}
-                            style={{
-                              marginRight: '0.5rem',
-                              marginTop: 'auto',
-                              marginBottom: 'auto',
-                            }}
-                          />
-                          <ListItemText>{value}</ListItemText>
-                        </>
-                      )}
-                    </ListItemButton>
+                    <SidePanelNavButton
+                      darkMode={darkMode}
+                      drawerHidden={drawerHidden}
+                      button={value}
+                    />
                   </ListItem>
                 ))}
               </List>
@@ -163,24 +128,11 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
                 )}
                 {[AdminDashboardTabs.Users].map((value, index) => (
                   <ListItem disablePadding key={index}>
-                    <ListItemButton sx={{ marginY: 'auto' }}>
-                      {drawerHidden && (
-                        <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
-                      )}
-                      {!drawerHidden && (
-                        <>
-                          <FaHome
-                            size={18}
-                            style={{
-                              marginRight: '0.5rem',
-                              marginTop: 'auto',
-                              marginBottom: 'auto',
-                            }}
-                          />
-                          <ListItemText>{value}</ListItemText>
-                        </>
-                      )}
-                    </ListItemButton>
+                    <SidePanelNavButton
+                      darkMode={darkMode}
+                      drawerHidden={drawerHidden}
+                      button={value}
+                    />
                   </ListItem>
                 ))}
               </List>
