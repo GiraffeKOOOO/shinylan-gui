@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { ListItemButton, ListItemText } from '@mui/material';
+import { useNavigate } from 'react-router';
 import { FaChartPie } from 'react-icons/fa';
 import { AdminDashboardTabs } from 'Components/Shared/Types';
 import { FaHome } from 'react-icons/fa';
@@ -11,6 +12,7 @@ import { MdFastfood } from 'react-icons/md';
 import { FaTshirt } from 'react-icons/fa';
 import { FaUserCircle } from 'react-icons/fa';
 import Colours from 'Components/Shared/Colours';
+import AdminLocationSwitch from 'Components/AdminDashboard/AdminLocationSwitch';
 
 type SidePanelNavButtonProps = {
   darkMode: boolean;
@@ -163,13 +165,9 @@ const iconSwitch = (darkMode: boolean, button: AdminDashboardTabs, drawerHidden:
 };
 
 const SidePanelNavButton: FC<SidePanelNavButtonProps> = ({ darkMode, button, drawerHidden }) => {
+  const navigate = useNavigate();
   return (
-    <ListItemButton
-      sx={{ marginY: 'auto' }}
-      onClick={() => {
-        console.log(`TEST: `, button);
-      }}
-    >
+    <ListItemButton sx={{ marginY: 'auto' }} onClick={() => AdminLocationSwitch(button, navigate)}>
       {drawerHidden && iconSwitch(darkMode, button, drawerHidden)}
       {!drawerHidden && (
         <>

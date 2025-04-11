@@ -4,11 +4,11 @@ import { useRecoilState } from 'recoil';
 import { sidePanelState } from 'Components/AdminDashboard/SidepanelState';
 import AdminDashboardSidepanel from 'Components/AdminDashboard/AdminDashboardSidepanel';
 
-type AdminDashboardProps = {
+type AdminEventsDashboardProps = {
   darkMode: boolean;
 };
 
-const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
+const AdminEventsDashboard: FC<AdminEventsDashboardProps> = ({ darkMode }) => {
   const [drawerHidden] = useRecoilState(sidePanelState);
 
   return (
@@ -26,7 +26,7 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
             <Stack direction="row" spacing={1}>
               <span>Admin</span>
               <span>/</span>
-              <span>Overview</span>
+              <span>Events</span>
             </Stack>
             {/* <Button variant="contained">Create Order</Button> */}
             {/* search bar */}
@@ -37,4 +37,4 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
   );
 };
 
-export default AdminDashboard;
+export default AdminEventsDashboard;

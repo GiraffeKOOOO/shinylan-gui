@@ -14,6 +14,7 @@ import TermsAndConditions from 'Pages/TermsAndConditions';
 import UserProfile from 'Pages/UserProfile';
 import OrderHistory from 'Pages/OrderHistory';
 import Admin from 'Pages/Admin';
+import AdminEvents from 'Pages/Admin/AdminEvents';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
   {
     path: '/admin',
     element: <Admin />,
+  },
+  {
+    path: '/admin/events',
+    element: <AdminEvents />,
   },
 ]);
 
