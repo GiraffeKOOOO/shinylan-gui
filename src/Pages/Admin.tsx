@@ -17,7 +17,7 @@ const Admin: FC = () => {
         <Navbar darkMode={darkMode} isMobile={isMobile} />
       </Grid>
 
-      <Grid size={12} sx={{ flexGrow: 1 }}>
+      <Grid size={12}>
         <AdminDashboard darkMode={darkMode} />
       </Grid>
 

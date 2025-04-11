@@ -17,6 +17,7 @@ const Footer: FC<FooterProps> = ({ darkMode }) => {
     <Grid
       container
       sx={{
+        height: '9.375rem',
         width: '100vw',
         maxWidth: '100vw',
         backgroundColor: darkMode ? Colours.darkBackgroundFooter : Colours.lightBackgroundFooter,

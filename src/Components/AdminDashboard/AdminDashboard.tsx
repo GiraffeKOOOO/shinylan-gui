@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import {
   Card,
   Divider,
@@ -8,20 +8,25 @@ import {
   ListItemButton,
   ListItemText,
   Stack,
+  Typography,
 } from '@mui/material';
 import Colours from 'Components/Shared/Colours';
 import { AdminDashboardTabs } from 'Components/Shared/Types';
 import { FaHome } from 'react-icons/fa';
+import { TbLayoutSidebarLeftCollapseFilled } from 'react-icons/tb';
+import { TbLayoutSidebarRightCollapseFilled } from 'react-icons/tb';
 
 type AdminDashboardProps = {
   darkMode: boolean;
 };
 
 const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
+  const [drawerHidden, setDrawerHidden] = useState<boolean>(true);
+
   return (
-    <Grid container justifyContent="space-between">
+    <Grid container justifyContent="space-between" sx={{ height: 'calc(100vh - 100px)' }}>
       {/* side panel */}
-      <Grid size={1.5} sx={{ height: '100vh' }}>
+      <Grid size={drawerHidden ? 0.4 : 1.3} sx={{ height: 'calc(100vh - 100px)' }}>
         <Card
           sx={{
             width: '100%',
@@ -33,33 +38,189 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ darkMode }) => {
           }}
           role="presentation"
         >
-          <List>
-            <ListItem disablePadding>
-              <ListItemButton>
-                {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                <ListItemText>Overview</ListItemText>
-                <FaHome size={22} />
+          <Stack direction="column" justifyContent="space-between" sx={{ height: '100%' }}>
+            <Stack>
+              {/* overview */}
+              <ListItemButton sx={{ marginY: 'auto' }}>
+                {drawerHidden && (
+                  <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
+                )}
+                {!drawerHidden && (
+                  <>
+                    <FaHome
+                      size={18}
+                      style={{ marginRight: '0.5rem', marginTop: 'auto', marginBottom: 'auto' }}
+                    />
+                    <ListItemText>Overview</ListItemText>
+                  </>
+                )}
               </ListItemButton>
-            </ListItem>
-          </List>
-          <Divider />
-          <List>
-            {[AdminDashboardTabs.Events, 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>asds</List>
+
+              <Divider />
+
+              {/* Events */}
+              <List>
+                {!drawerHidden && (
+                  <Typography
+                    textAlign="left"
+                    sx={{
+                      fontSize: '0.8rem',
+                      marginLeft: '1rem',
+                      color: darkMode ? Colours.darkTextHover : Colours.faqAccordionBorderGrey,
+                    }}
+                  >
+                    Events
+                  </Typography>
+                )}
+                {[
+                  AdminDashboardTabs.Events,
+                  AdminDashboardTabs.Venues,
+                  AdminDashboardTabs.EventProducts,
+                ].map((value, index) => (
+                  <ListItem disablePadding key={index}>
+                    <ListItemButton sx={{ marginY: 'auto' }}>
+                      {drawerHidden && (
+                        <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
+                      )}
+                      {!drawerHidden && (
+                        <>
+                          <FaHome
+                            size={18}
+                            style={{
+                              marginRight: '0.5rem',
+                              marginTop: 'auto',
+                              marginBottom: 'auto',
+                            }}
+                          />
+                          <ListItemText>{value}</ListItemText>
+                        </>
+                      )}
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+
+              <Divider />
+
+              {/* Orders */}
+              <List>
+                {!drawerHidden && (
+                  <Typography
+                    textAlign="left"
+                    sx={{
+                      fontSize: '0.8rem',
+                      marginLeft: '1rem',
+                      color: darkMode ? Colours.darkTextHover : Colours.faqAccordionBorderGrey,
+                    }}
+                  >
+                    Orders
+                  </Typography>
+                )}
+                {[
+                  AdminDashboardTabs.AllOrders,
+                  AdminDashboardTabs.Tickets,
+                  AdminDashboardTabs.Addons,
+                  AdminDashboardTabs.Merchandise,
+                ].map((value, index) => (
+                  <ListItem disablePadding key={index}>
+                    <ListItemButton sx={{ marginY: 'auto' }}>
+                      {drawerHidden && (
+                        <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
+                      )}
+                      {!drawerHidden && (
+                        <>
+                          <FaHome
+                            size={18}
+                            style={{
+                              marginRight: '0.5rem',
+                              marginTop: 'auto',
+                              marginBottom: 'auto',
+                            }}
+                          />
+                          <ListItemText>{value}</ListItemText>
+                        </>
+                      )}
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+
+              <Divider />
+
+              {/* Users */}
+              <List>
+                {!drawerHidden && (
+                  <Typography
+                    textAlign="left"
+                    sx={{
+                      fontSize: '0.8rem',
+                      marginLeft: '1rem',
+                      color: darkMode ? Colours.darkTextHover : Colours.faqAccordionBorderGrey,
+                    }}
+                  >
+                    Users
+                  </Typography>
+                )}
+                {[AdminDashboardTabs.Users].map((value, index) => (
+                  <ListItem disablePadding key={index}>
+                    <ListItemButton sx={{ marginY: 'auto' }}>
+                      {drawerHidden && (
+                        <FaHome size={25} style={{ marginLeft: 'auto', marginRight: 'auto' }} />
+                      )}
+                      {!drawerHidden && (
+                        <>
+                          <FaHome
+                            size={18}
+                            style={{
+                              marginRight: '0.5rem',
+                              marginTop: 'auto',
+                              marginBottom: 'auto',
+                            }}
+                          />
+                          <ListItemText>{value}</ListItemText>
+                        </>
+                      )}
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </Stack>
+
+            <Stack>
+              {/* collapse */}
+              <ListItemButton
+                sx={{ marginY: 'auto' }}
+                onClick={() => {
+                  setDrawerHidden(!drawerHidden);
+                }}
+              >
+                {drawerHidden && (
+                  <TbLayoutSidebarRightCollapseFilled
+                    size={25}
+                    style={{ marginLeft: 'auto', marginRight: 'auto' }}
+                  />
+                )}
+                {!drawerHidden && (
+                  <>
+                    <TbLayoutSidebarLeftCollapseFilled
+                      size={18}
+                      style={{
+                        marginRight: '0.5rem',
+                        marginTop: 'auto',
+                        marginBottom: 'auto',
+                      }}
+                    />
+                    <ListItemText>Hide</ListItemText>
+                  </>
+                )}
+              </ListItemButton>
+            </Stack>
+          </Stack>
         </Card>
       </Grid>
 
       {/* dashboard content */}
-      <Grid size={10.2} sx={{ height: '100vh' }}>
+      <Grid size={drawerHidden ? 11.4 : 10.4} sx={{ height: '100vh' }}>
         <Stack direction="column" justifyContent="center" sx={{ marginTop: '1.5rem' }}>
           {/* breadcrumb trail */}
           <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
