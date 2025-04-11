@@ -109,6 +109,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
                     onClose={handleCloseUserMenu}
                   >
                     {/* Drop Down Menu */}
+                    <NavbarMenuItem darkMode={darkMode} page={Pages.Admin} />
                     <NavbarMenuItem darkMode={darkMode} page={Pages.Profile} />
                     <NavbarMenuItem darkMode={darkMode} page={Pages.OrderHistory} />
                     <NavbarMenuItem darkMode={darkMode} page={Pages.LogOut} />

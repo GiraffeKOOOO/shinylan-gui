@@ -32,6 +32,9 @@ const LocationSwitch = (page: Pages, navigate: NavigateFunction) => {
     case Pages.LogOut:
       navigate('/logout');
       break;
+    case Pages.Admin:
+      navigate('/admin');
+      break;
     default:
       navigate('/');
   }

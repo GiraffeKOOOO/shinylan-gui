@@ -110,9 +110,17 @@ export enum Pages {
   Faq = 'FAQ',
   Contact = 'Contact',
   // setting pages
+  Admin = 'Admin',
   Profile = 'Profile',
   OrderHistory = 'Order History',
   LogOut = 'Log Out',
+}
+
+export enum AdminDashboardTabs {
+  Orders = 'Orders',
+  Users = 'Users',
+  Events = 'Events',
+  Merchandise = 'Merchandise',
 }
 
 export enum Socials {

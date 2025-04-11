@@ -13,6 +13,7 @@ import Contact from 'Pages/Contact';
 import TermsAndConditions from 'Pages/TermsAndConditions';
 import UserProfile from 'Pages/UserProfile';
 import OrderHistory from 'Pages/OrderHistory';
+import Admin from 'Pages/Admin';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
   {
     path: '/order-history',
     element: <OrderHistory />,
+  },
+  {
+    path: '/admin',
+    element: <Admin />,
   },
 ]);
 
