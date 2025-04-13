@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { Card, CardActionArea, CardMedia, Stack, Typography } from '@mui/material';
 import AnimatedNumbers from 'react-animated-numbers';
 import { Event } from 'Components/Shared/Types';
-import chair from 'Assets/chair.png';
 import Colours from 'Components/Shared/Colours';
+import chair from 'Assets/chair.png';
 
 type UpcomingLanSeatModuleProps = {
   darkMode: boolean;

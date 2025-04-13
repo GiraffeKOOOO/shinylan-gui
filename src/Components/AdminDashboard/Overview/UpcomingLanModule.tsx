@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Stack, Typography } from '@mui/material';
-import easterImage from 'Assets/easter.webp';
-import summerImage from 'Assets/summer.jpg';
 import { Event } from 'Components/Shared/Types';
 import Colours from 'Components/Shared/Colours';
+import easterImage from 'Assets/easter.webp';
+import summerImage from 'Assets/summer.jpg';
 
 type UpcomingLanModuleProps = {
   darkMode: boolean;

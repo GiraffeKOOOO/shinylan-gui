@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Grid2 as Grid, Stack } from '@mui/material';
+import { Event } from 'Components/Shared/Types';
 import UpcomingLanModule from 'Components/AdminDashboard/Overview/UpcomingLanModule';
 import UpcomingLanCostModule from 'Components/AdminDashboard/Overview/UpcomingLanCostModule';
 import UpcomingLanSeatModule from 'Components/AdminDashboard/Overview/UpcomingLanSeatModule';
 import UpcomingLanTicketModule from 'Components/AdminDashboard/Overview/UpcomingLanTicketModule';
 import UpcomingLanAddonsModule from 'Components/AdminDashboard/Overview/UpcomingLanAddonsModule';
-import { Event } from 'Components/Shared/Types';
 
 type OverviewPanelProps = {
   darkMode: boolean;

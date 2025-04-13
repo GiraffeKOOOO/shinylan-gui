@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import AnimatedNumbers from 'react-animated-numbers';
-import ticketImage from 'Assets/tickets.png';
 import Colours from 'Components/Shared/Colours';
+import ticketImage from 'Assets/tickets.png';
 
 type UpcomingLanTicketModuleProps = {
   darkMode: boolean;

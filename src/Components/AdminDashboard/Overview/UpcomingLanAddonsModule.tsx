@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import AnimatedNumbers from 'react-animated-numbers';
-import addonsImage from 'Assets/addons.png';
 import Colours from 'Components/Shared/Colours';
+import addonsImage from 'Assets/addons.png';
 
 type UpcomingLanAddonsModuleProps = {
   darkMode: boolean;
