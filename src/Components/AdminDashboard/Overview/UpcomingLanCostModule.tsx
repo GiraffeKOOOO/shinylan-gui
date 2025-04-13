@@ -45,9 +45,9 @@ const UpcomingLanCostModule: FC<UpcomingLanCostModuleProps> = () => {
               <Typography sx={{ fontSize: '1.6rem' }}>£ {lanTotal}</Typography>
             </Stack>
             <Stack direction="column" justifyContent="center">
-              <Typography>Tickets purchased: £{ticketsPurchased}</Typography>
-              <Typography>Addons purchased: £{addonsPurchased}</Typography>
-              <Typography>Venue cost: £{venueCost}</Typography>
+              <Typography textAlign="left">Tickets purchased: £{ticketsPurchased}</Typography>
+              <Typography textAlign="left">Addons purchased: £{addonsPurchased}</Typography>
+              <Typography textAlign="left">Venue cost: £{venueCost}</Typography>
             </Stack>
           </Stack>
         </Stack>
