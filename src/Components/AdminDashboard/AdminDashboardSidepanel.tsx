@@ -40,7 +40,7 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode, p
         <Stack>
           {/* overview */}
           <SidePanelNavButton
-            index={0}
+            key={0}
             darkMode={darkMode}
             drawerHidden={drawerHidden}
             button={AdminDashboardTabs.Overview}
@@ -69,7 +69,7 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode, p
               AdminDashboardTabs.EventProducts,
             ].map((value, index) => (
               <SidePanelNavButton
-                index={index}
+                key={index}
                 darkMode={darkMode}
                 drawerHidden={drawerHidden}
                 button={value}
@@ -101,7 +101,7 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode, p
               AdminDashboardTabs.Merchandise,
             ].map((value, index) => (
               <SidePanelNavButton
-                index={index}
+                key={index}
                 darkMode={darkMode}
                 drawerHidden={drawerHidden}
                 button={value}
@@ -128,7 +128,7 @@ const AdminDashboardSidepanel: FC<AdminDashboardSidepanelProps> = ({ darkMode, p
             )}
             {[AdminDashboardTabs.Users].map((value, index) => (
               <SidePanelNavButton
-                index={index}
+                key={index}
                 darkMode={darkMode}
                 drawerHidden={drawerHidden}
                 button={value}

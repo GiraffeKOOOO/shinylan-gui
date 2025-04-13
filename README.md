@@ -22,8 +22,10 @@
     <li>React Router</li>
     <li>Tanstack Query</li>
     <li>Material UI</li>
+    <li>Material UI - X-Charts</li>
     <li>React Icons</li>
     <li>Material Design Icons</li>
     <li>React Simple Image Viewer</li>
     <li>Recoil JS</li>
+    <li>React Animated Numbers</li>
 </ul>

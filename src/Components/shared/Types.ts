@@ -9,6 +9,7 @@ export type Venue = {
 export type Event = {
   id: number;
   type: 'Summer' | 'Easter';
+  description: string;
   venue: Venue;
   dateFrom: Date;
   dateTo: Date;
@@ -120,7 +121,7 @@ export enum AdminDashboardTabs {
   Overview = 'overview',
   Events = 'events',
   Venues = 'venues',
-  EventProducts = 'even-products',
+  EventProducts = 'event-products',
   AllOrders = 'all-orders',
   Tickets = 'tickets',
   Addons = 'addons',

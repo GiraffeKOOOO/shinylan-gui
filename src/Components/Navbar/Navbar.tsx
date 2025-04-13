@@ -72,7 +72,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, isMobile }) => {
 
           {/* right side */}
           <Grid size={3}>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={2} justifyContent="flex-end">
               <DarkModeButton />
               {overide ? (
                 <>

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { ListItemButton, ListItemText } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { FaChartPie } from 'react-icons/fa';
 import { AdminDashboardTabs } from 'Components/Shared/Types';
@@ -13,14 +13,6 @@ import { FaTshirt } from 'react-icons/fa';
 import { FaUserCircle } from 'react-icons/fa';
 import Colours from 'Components/Shared/Colours';
 import AdminLocationSwitch from 'Components/AdminDashboard/AdminLocationSwitch';
-
-type SidePanelNavButtonProps = {
-  index: number;
-  darkMode: boolean;
-  button: AdminDashboardTabs;
-  drawerHidden: boolean;
-  path: string;
-};
 
 const drawerHiddenButtonStyle = {
   marginLeft: 'auto',
@@ -166,8 +158,14 @@ const iconSwitch = (darkMode: boolean, button: AdminDashboardTabs, drawerHidden:
   }
 };
 
+type SidePanelNavButtonProps = {
+  darkMode: boolean;
+  button: AdminDashboardTabs;
+  drawerHidden: boolean;
+  path: string;
+};
+
 const SidePanelNavButton: FC<SidePanelNavButtonProps> = ({
-  index,
   darkMode,
   button,
   drawerHidden,
@@ -176,26 +174,24 @@ const SidePanelNavButton: FC<SidePanelNavButtonProps> = ({
   const navigate = useNavigate();
 
   return (
-    <ListItem disablePadding key={index}>
-      <ListItemButton
-        sx={{
-          marginY: 'auto',
-          backgroundColor: path === button ? Colours.lightBackgroundFooter : 'none',
-          '&:hover': {
-            backgroundColor: darkMode ? Colours.lightBackground : Colours.lightBackgroundFooter,
-          },
-        }}
-        onClick={() => AdminLocationSwitch(button, navigate)}
-      >
-        {drawerHidden && iconSwitch(darkMode, button, drawerHidden)}
-        {!drawerHidden && (
-          <>
-            {iconSwitch(darkMode, button, drawerHidden)}
-            <ListItemText>{button}</ListItemText>
-          </>
-        )}
-      </ListItemButton>
-    </ListItem>
+    <ListItemButton
+      sx={{
+        marginY: 'auto',
+        backgroundColor: path === button ? Colours.lightBackgroundFooter : 'none',
+        '&:hover': {
+          backgroundColor: darkMode ? Colours.lightBackground : Colours.lightBackgroundFooter,
+        },
+      }}
+      onClick={() => AdminLocationSwitch(button, navigate)}
+    >
+      {drawerHidden && iconSwitch(darkMode, button, drawerHidden)}
+      {!drawerHidden && (
+        <>
+          {iconSwitch(darkMode, button, drawerHidden)}
+          <ListItemText>{button}</ListItemText>
+        </>
+      )}
+    </ListItemButton>
   );
 };
 
